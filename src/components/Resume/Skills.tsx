@@ -4,13 +4,14 @@ import type { CSSProperties } from 'react';
 import { useCallback, useMemo, useReducer } from 'react';
 
 import type { Category, Skill } from '@/data/resume/skills';
-
+import { getTranslation, Language } from '@/data/translations';
 import CategoryButton from './Skills/CategoryButton';
 import SkillTag from './Skills/SkillTag';
 
 interface SkillsProps {
   skills: Skill[];
   categories: Category[];
+  lang: Language;
 }
 
 type ButtonState = Record<string, boolean>;
@@ -39,7 +40,9 @@ function buttonReducer(state: ButtonState, action: ButtonAction): ButtonState {
   }
 }
 
-export default function Skills({ skills, categories }: SkillsProps) {
+export default function Skills({ skills, categories, lang }: SkillsProps) {
+  const t = getTranslation(lang);
+
   const initialButtons = Object.fromEntries(
     [['All', false]].concat(categories.map(({ name }) => [name, false])),
   );
@@ -59,9 +62,10 @@ export default function Skills({ skills, categories }: SkillsProps) {
           key={key}
           isActive={buttons[key]}
           handleClick={handleChildClick}
+          lang={lang}
         />
       )),
-    [buttons, handleChildClick],
+    [buttons, handleChildClick, lang],
   );
 
   // Get active category
@@ -75,7 +79,9 @@ export default function Skills({ skills, categories }: SkillsProps) {
     // Sort skills by competency (highest first), then alphabetically
     const sortedSkills = [...skills].sort((a, b) => {
       if (a.competency !== b.competency) return b.competency - a.competency;
-      return a.title.localeCompare(b.title);
+      const titleA = lang === 'en' ? a.titleEn : a.titleFr;
+      const titleB = lang === 'en' ? b.titleEn : b.titleFr;
+      return titleA.localeCompare(titleB);
     });
 
     // Filter skills based on active category
@@ -100,13 +106,19 @@ export default function Skills({ skills, categories }: SkillsProps) {
       );
     }
     return { [activeCategory]: filteredSkills };
-  }, [skills, categories, activeCategory]);
+  }, [skills, categories, activeCategory, lang]);
+
+  const getTranslatedCategoryName = (name: string) => {
+    return (
+      t[`skill.category.${name.toLowerCase()}` as keyof ReturnType<typeof getTranslation>] || name
+    );
+  };
 
   return (
     <div className="skills">
       <div className="link-to" id="skills" />
       <div className="title">
-        <h3>Skills</h3>
+        <h3>{t['resume.nav.skills']}</h3>
       </div>
       <div className="skill-button-container">{buttonElements}</div>
       <div className="skill-groups">
@@ -119,14 +131,15 @@ export default function Skills({ skills, categories }: SkillsProps) {
           return (
             <div key={categoryName} className="skill-group">
               <h4 className="skill-group-title" style={titleStyle}>
-                {categoryName}
+                {getTranslatedCategoryName(categoryName)}
               </h4>
               <div className="skill-tags">
                 {categorySkills.map((skill) => (
                   <SkillTag
-                    key={skill.title}
+                    key={lang === 'en' ? skill.titleEn : skill.titleFr}
                     data={skill}
                     categories={categories}
+                    lang={lang}
                   />
                 ))}
               </div>

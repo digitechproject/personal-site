@@ -1,12 +1,13 @@
 import type { Course as CourseType } from '@/data/resume/courses';
-
 import Course from './Courses/Course';
+import { getTranslation, Language } from '@/data/translations';
 
 interface CoursesProps {
   data: CourseType[];
+  lang: Language;
 }
 
-function getRows(courses: CourseType[]) {
+function getRows(courses: CourseType[], lang: Language) {
   return courses
     .sort((a, b) => {
       let ret = 0;
@@ -16,17 +17,22 @@ function getRows(courses: CourseType[]) {
       else if (a.number < b.number) ret = -1;
       return ret;
     })
-    .map((course) => <Course data={course} key={course.title} />);
+    .map((course) => {
+      const title = lang === 'en' ? course.titleEn : course.titleFr;
+      return <Course data={course} key={title} lang={lang} />;
+    });
 }
 
-export default function Courses({ data }: CoursesProps) {
+export default function Courses({ data, lang }: CoursesProps) {
+  const t = getTranslation(lang);
+
   return (
     <div className="courses">
       <div className="link-to" id="courses" />
       <div className="title">
-        <h3>Selected Courses</h3>
+        <h3>{t['resume.nav.courses']}</h3>
       </div>
-      <ul className="course-list">{getRows(data)}</ul>
+      <ul className="course-list">{getRows(data, lang)}</ul>
     </div>
   );
 }

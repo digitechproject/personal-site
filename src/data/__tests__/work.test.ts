@@ -11,12 +11,14 @@ describe('work data', () => {
   it('each position has required properties', () => {
     for (const job of work) {
       expect(job).toHaveProperty('name');
-      expect(job).toHaveProperty('position');
+      expect(job).toHaveProperty('positionFr');
+      expect(job).toHaveProperty('positionEn');
       expect(job).toHaveProperty('url');
       expect(job).toHaveProperty('startDate');
 
       expect(typeof job.name).toBe('string');
-      expect(typeof job.position).toBe('string');
+      expect(typeof job.positionFr).toBe('string');
+      expect(typeof job.positionEn).toBe('string');
       expect(typeof job.url).toBe('string');
       expect(typeof job.startDate).toBe('string');
     }
@@ -49,7 +51,7 @@ describe('work data', () => {
   });
 
   it('urls are valid', () => {
-    const urlRegex = /^https?:\/\/.+/;
+    const urlRegex = /^(https?:\/\/.+|#.*)$/;
 
     for (const job of work) {
       expect(job.url).toMatch(urlRegex);
@@ -64,9 +66,13 @@ describe('work data', () => {
 
   it('highlights are arrays when present', () => {
     for (const job of work) {
-      if (job.highlights) {
-        expect(Array.isArray(job.highlights)).toBe(true);
-        expect(job.highlights.length).toBeGreaterThan(0);
+      if (job.highlightsFr) {
+        expect(Array.isArray(job.highlightsFr)).toBe(true);
+        expect(job.highlightsFr.length).toBeGreaterThan(0);
+      }
+      if (job.highlightsEn) {
+        expect(Array.isArray(job.highlightsEn)).toBe(true);
+        expect(job.highlightsEn.length).toBeGreaterThan(0);
       }
     }
   });

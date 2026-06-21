@@ -2,14 +2,18 @@ import type { CSSProperties } from 'react';
 
 import type { Category, Skill } from '@/data/resume/skills';
 import { MAX_COMPETENCY } from '@/lib/utils';
+import { Language } from '@/data/translations';
 
 interface SkillBarProps {
   data: Skill;
   categories: Category[];
+  lang?: Language;
 }
 
-export default function SkillBar({ data, categories }: SkillBarProps) {
-  const { category, competency, title } = data;
+export default function SkillBar({ data, categories, lang = 'fr' }: SkillBarProps) {
+  const { category, competency, titleFr, titleEn } = data;
+
+  const title = lang === 'en' ? titleEn : titleFr;
 
   // Get the primary category for styling (color and pre-computed text contrast)
   const primaryCategory = categories.find((cat) => category.includes(cat.name));
@@ -27,6 +31,8 @@ export default function SkillBar({ data, categories }: SkillBarProps) {
     Math.max((competency / MAX_COMPETENCY) * 100, 0),
   );
 
+  const outOfText = lang === 'en' ? 'out of' : 'sur';
+
   // Pass color via CSS custom property for design system consistency
   const skillbarStyle = {
     '--skillbar-color': categoryColor,
@@ -39,7 +45,7 @@ export default function SkillBar({ data, categories }: SkillBarProps) {
       aria-valuenow={competency}
       aria-valuemin={1}
       aria-valuemax={MAX_COMPETENCY}
-      aria-label={`${title}: ${competency} out of ${MAX_COMPETENCY}`}
+      aria-label={`${title}: ${competency} ${outOfText} ${MAX_COMPETENCY}`}
       style={skillbarStyle}
     >
       <div className={`skillbar-title ${textColorClass}`}>

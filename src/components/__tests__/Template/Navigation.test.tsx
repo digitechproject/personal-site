@@ -3,10 +3,17 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import Navigation from '../../Template/Navigation';
 
-// Mock usePathname to control active state
+// Mock usePathname and useRouter to control active state and navigation
 const mockPathname = vi.fn();
+const mockRouter = {
+  push: vi.fn(),
+  replace: vi.fn(),
+  prefetch: vi.fn(),
+};
+
 vi.mock('next/navigation', () => ({
   usePathname: () => mockPathname(),
+  useRouter: () => mockRouter,
 }));
 
 describe('Navigation', () => {
@@ -30,53 +37,70 @@ describe('Navigation', () => {
   });
 
   it('renders the logo link to home', () => {
+    mockPathname.mockReturnValue('/fr/');
     render(<Navigation />);
-    const logo = screen.getByRole('link', { name: /md/i });
-    expect(logo).toHaveAttribute('href', '/');
+    const logo = screen.getByRole('link', { name: /fh/i });
+    expect(logo).toHaveAttribute('href', '/fr');
   });
 
-  it('renders navigation links for all non-index routes', () => {
+  it('renders navigation links for all non-index routes in French', () => {
+    mockPathname.mockReturnValue('/fr/');
     render(<Navigation />);
 
-    // Should have links for About, Resume, Writing, Stats, Contact, Archive
+    // Should have links for About, Resume, Writing, Contact, Projects, Event, Gallery in French
+    expect(screen.getByRole('link', { name: /à propos/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /cv/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /projets/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /articles/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /événement/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /galerie/i })).toBeInTheDocument();
+  });
+
+  it('renders navigation links for all non-index routes in English', () => {
+    mockPathname.mockReturnValue('/en/');
+    render(<Navigation />);
+
+    // Should have links for About, Resume, Writing, Contact, Projects, Event, Gallery in English
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /resume/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /archive/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /projects/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /writing/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /stats/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /event/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /gallery/i })).toBeInTheDocument();
   });
 
   it('marks home route as active when on homepage', () => {
-    mockPathname.mockReturnValue('/');
+    mockPathname.mockReturnValue('/fr/');
     render(<Navigation />);
 
-    // About link should not be active
-    const aboutLink = screen.getByRole('link', { name: /about/i });
+    const logo = screen.getByRole('link', { name: /fh/i });
+    // Home isn't a NavLink but the logo has the href, we can verify that À propos isn't active
+    const aboutLink = screen.getByRole('link', { name: /à propos/i });
     expect(aboutLink).not.toHaveClass('active');
   });
 
   it('marks about route as active when on about page', () => {
-    mockPathname.mockReturnValue('/about');
+    mockPathname.mockReturnValue('/fr/about');
     render(<Navigation />);
 
-    const aboutLink = screen.getByRole('link', { name: /about/i });
+    const aboutLink = screen.getByRole('link', { name: /à propos/i });
     expect(aboutLink).toHaveClass('active');
     expect(aboutLink).toHaveAttribute('aria-current', 'page');
   });
 
   it('marks nested routes as active', () => {
-    mockPathname.mockReturnValue('/resume/skills');
+    mockPathname.mockReturnValue('/fr/resume/skills');
     render(<Navigation />);
 
-    const resumeLink = screen.getByRole('link', { name: /resume/i });
+    const resumeLink = screen.getByRole('link', { name: /cv/i });
     expect(resumeLink).toHaveClass('active');
   });
 
   it('renders theme toggle and hamburger menu', () => {
     render(<Navigation />);
 
-    // Theme toggle should be present (placeholder initially due to SSR)
     const navActions = document.querySelector('.nav-actions');
     expect(navActions).toBeInTheDocument();
   });

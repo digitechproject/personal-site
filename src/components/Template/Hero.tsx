@@ -1,8 +1,19 @@
 import Link from 'next/link';
 
 import ThemePortrait from './ThemePortrait';
+import { getTranslation, Language } from '@/data/translations';
 
-export default function Hero() {
+interface HeroProps {
+  lang: Language;
+}
+
+export default function Hero({ lang }: HeroProps) {
+  const t = getTranslation(lang);
+
+  const getLocalizedPath = (path: string) => {
+    return `/${lang}${path}`;
+  };
+
   return (
     <section className="hero">
       <div className="hero-content">
@@ -11,35 +22,29 @@ export default function Hero() {
         </div>
 
         <h1 className="hero-title">
-          <span className="hero-name">Michael D&apos;Angelo</span>
+          <span className="hero-name">Fernando HOUSSOU</span>
         </h1>
 
         <p className="hero-tagline">
-          Member of the Technical Staff at{' '}
-          <a href="https://openai.com" className="hero-highlight">
-            OpenAI
-          </a>
-          , where I work on{' '}
-          <a href="https://promptfoo.dev" className="hero-highlight">
-            Promptfoo
-          </a>{' '}
-          and agent security.
-          <br />
-          Previously co-founded, scaled, and sold Promptfoo to OpenAI.
+          {t['hero.tagline']}
         </p>
 
         <div className="hero-chips">
-          <span className="hero-chip">YC Alum</span>
-          <span className="hero-chip">Stanford ICME</span>
-          <span className="hero-chip">Co-founded Arthena & Matroid</span>
+          <span className="hero-chip">Entrepreneur Tech</span>
+          <span className="hero-chip">Ahizan</span>
+          <span className="hero-chip">SOFITAR</span>
+          <span className="hero-chip">RestooGo</span>
         </div>
 
         <div className="hero-cta">
-          <Link href="/about" className="button button-primary">
-            About Me
+          <Link href={getLocalizedPath('/about/')} className="button button-primary">
+            {t['hero.about']}
           </Link>
-          <Link href="/resume" className="button button-secondary">
-            View Resume
+          <Link href={getLocalizedPath('/resume/')} className="button button-secondary">
+            {t['hero.resume']}
+          </Link>
+          <Link href={getLocalizedPath('/event/')} className="button button-secondary">
+            {t['hero.event']}
           </Link>
         </div>
       </div>

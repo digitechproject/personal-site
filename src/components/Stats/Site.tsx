@@ -1,5 +1,7 @@
 import initialData from '../../data/stats/site';
 import Table from './Table';
+import { getTranslation, Language } from '@/data/translations';
+import dayjs from 'dayjs';
 
 type GitHubCacheKey =
   | 'stargazers_count'
@@ -17,7 +19,6 @@ interface GitHubData {
 }
 
 // Static fallback values used when GitHub API is unavailable
-// Updated: 2026-01-04 with current values
 const FALLBACK_DATA: GitHubData = {
   stargazers_count: 1610,
   subscribers_count: 23,
@@ -26,14 +27,10 @@ const FALLBACK_DATA: GitHubData = {
   pushed_at: '2026-01-04T00:00:00Z',
 };
 
-/**
- * Fetch GitHub stats at build time.
- * Uses static fallback if API is unavailable (rate limit, offline, etc.)
- */
 async function fetchGitHubStats(): Promise<GitHubData> {
   try {
     const response = await fetch(
-      'https://api.github.com/repos/mldangelo/personal-site',
+      'https://api.github.com/repos/fernandohoussou/personal-site',
       {
         headers: { Accept: 'application/vnd.github.v3+json' },
         next: { revalidate: false },
@@ -59,26 +56,42 @@ async function fetchGitHubStats(): Promise<GitHubData> {
   }
 }
 
-/**
- * Site statistics component - fetches GitHub data at build time.
- * Server component, no client-side JavaScript shipped.
- */
-export default async function SiteStats() {
-  const githubData = await fetchGitHubStats();
+interface SiteStatsProps {
+  lang: Language;
+}
 
-  // Apply formatting and resolve values - functions can't be serialized in RSC
+export default async function SiteStats({ lang }: SiteStatsProps) {
+  const githubData = await fetchGitHubStats();
+  const t = getTranslation(lang);
+
+  const getTranslationKey = (label: string, key?: string): string => {
+    if (key) return `stats.label.${key}`;
+    if (label.toLowerCase().includes('spoon')) return 'stats.label.spoons';
+    if (label.toLowerCase().includes('linter')) return 'stats.label.linter';
+    if (label.toLowerCase().includes('lines')) return 'stats.label.lines';
+    return '';
+  };
+
   const data = initialData.map((field) => {
     const rawValue =
       field.key && field.key in githubData
         ? (githubData[field.key as GitHubCacheKey] ?? field.value)
         : field.value;
 
-    // Apply format function if present, otherwise use raw value
-    const value = field.format ? field.format(rawValue) : rawValue;
+    let value = field.format ? field.format(rawValue) : rawValue;
 
-    // Return only serializable properties (no functions)
+    // Localize pushed_at date formatting based on language
+    if (field.key === 'pushed_at') {
+      const formatStr = lang === 'en' ? 'MMMM DD, YYYY' : 'DD MMMM YYYY';
+      value = dayjs(rawValue as string).format(formatStr);
+    }
+
+    const translationKey = getTranslationKey(field.label, field.key);
+    const label =
+      t[translationKey as keyof ReturnType<typeof getTranslation>] || field.label;
+
     return {
-      label: field.label,
+      label,
       value,
       link: field.link,
     };

@@ -8,6 +8,7 @@ export interface PostFrontmatter {
   date: string;
   description: string;
   draft?: boolean;
+  lang?: string;
 }
 
 export interface Post {
@@ -17,6 +18,7 @@ export interface Post {
   description: string;
   content: string;
   draft?: boolean;
+  lang?: string;
 }
 
 const postsDirectory = path.join(process.cwd(), 'content/writing');
@@ -49,6 +51,7 @@ export function getPostBySlug(slug: string): Post | null {
     description: frontmatter.description,
     content,
     draft: frontmatter.draft,
+    lang: frontmatter.lang,
   };
 }
 

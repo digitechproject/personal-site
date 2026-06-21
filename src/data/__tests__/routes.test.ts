@@ -41,6 +41,8 @@ describe('routes', () => {
     expect(paths).toContain('/resume');
     expect(paths).toContain('/projects');
     expect(paths).toContain('/contact');
+    expect(paths).toContain('/event');
+    expect(paths).toContain('/gallery');
   });
 
   it('has unique paths', () => {

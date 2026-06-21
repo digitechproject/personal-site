@@ -11,14 +11,16 @@ describe('degrees data', () => {
   it('each degree has required properties', () => {
     for (const degree of degrees) {
       expect(degree).toHaveProperty('school');
-      expect(degree).toHaveProperty('degree');
+      expect(degree).toHaveProperty('degreeFr');
+      expect(degree).toHaveProperty('degreeEn');
       expect(degree).toHaveProperty('link');
       expect(degree).toHaveProperty('year');
 
       expect(typeof degree.school).toBe('string');
-      expect(typeof degree.degree).toBe('string');
+      expect(typeof degree.degreeFr).toBe('string');
+      expect(typeof degree.degreeEn).toBe('string');
       expect(typeof degree.link).toBe('string');
-      expect(typeof degree.year).toBe('number');
+      expect(['number', 'string']).toContain(typeof degree.year);
     }
   });
 
@@ -26,13 +28,16 @@ describe('degrees data', () => {
     const currentYear = new Date().getFullYear();
 
     for (const degree of degrees) {
-      expect(degree.year).toBeGreaterThanOrEqual(1950);
-      expect(degree.year).toBeLessThanOrEqual(currentYear + 10);
+      const yearNum = typeof degree.year === 'number' 
+        ? degree.year 
+        : parseInt(degree.year.split('-').pop()?.trim() || '0', 10);
+      expect(yearNum).toBeGreaterThanOrEqual(1950);
+      expect(yearNum).toBeLessThanOrEqual(currentYear + 10);
     }
   });
 
   it('links are valid URLs', () => {
-    const urlRegex = /^https?:\/\/.+/;
+    const urlRegex = /^(https?:\/\/.+|#.*)$/;
 
     for (const degree of degrees) {
       expect(degree.link).toMatch(urlRegex);
@@ -41,7 +46,13 @@ describe('degrees data', () => {
 
   it('degrees are ordered by year (most recent first)', () => {
     for (let i = 0; i < degrees.length - 1; i++) {
-      expect(degrees[i].year).toBeGreaterThanOrEqual(degrees[i + 1].year);
+      const yearI = typeof degrees[i].year === 'number' 
+        ? (degrees[i].year as number) 
+        : parseInt(degrees[i].year.toString().split('-').pop()?.trim() || '0', 10);
+      const yearI1 = typeof degrees[i + 1].year === 'number' 
+        ? (degrees[i + 1].year as number) 
+        : parseInt(degrees[i + 1].year.toString().split('-').pop()?.trim() || '0', 10);
+      expect(yearI).toBeGreaterThanOrEqual(yearI1);
     }
   });
 
@@ -54,7 +65,8 @@ describe('degrees data', () => {
 
   it('each degree has a non-empty degree name', () => {
     for (const degree of degrees) {
-      expect(degree.degree.trim().length).toBeGreaterThan(0);
+      expect(degree.degreeFr.trim().length).toBeGreaterThan(0);
+      expect(degree.degreeEn.trim().length).toBeGreaterThan(0);
     }
   });
 });

@@ -1,89 +1,77 @@
 export interface Course {
-  title: string;
+  titleFr: string;
+  titleEn: string;
   number: string;
   link: string;
   university: string;
+  detailsFr?: string[];
+  detailsEn?: string[];
 }
 
 const courses: Course[] = [
   {
-    title: 'Convex Optimization',
-    number: 'EE 364a',
-    link: 'http://stanford.edu/class/ee364a/',
-    university: 'Stanford',
+    titleFr: 'Développement Laravel & PHP Moderne',
+    titleEn: 'Laravel & Modern PHP Development',
+    number: 'Laracasts Path',
+    link: 'https://laracasts.com',
+    university: 'Laracasts',
+    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
+    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
   },
   {
-    title: 'Machine Learning',
-    number: 'CS 229',
-    link: 'http://cs229.stanford.edu/',
-    university: 'Stanford',
+    titleFr: 'Masterclass UI/UX Design & Prototypage',
+    titleEn: 'UI/UX Design Masterclass & Prototyping',
+    number: 'Figma Path',
+    link: 'https://www.interaction-design.org',
+    university: 'Interaction Design Foundation',
+    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
+    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
   },
   {
-    title: 'Convolutional Neural Networks for Visual Recognition',
-    number: 'CS 231n',
-    link: 'http://cs231n.stanford.edu/',
-    university: 'Stanford',
+    titleFr: 'Stratégies SEO Avancées & Marketing Digital',
+    titleEn: 'Advanced SEO & Digital Marketing Strategies',
+    number: 'HubSpot SEO',
+    link: 'https://academy.hubspot.com',
+    university: 'HubSpot Academy',
+    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
+    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
   },
   {
-    title: 'Numerical Linear Algebra',
-    number: 'CME 302',
-    link: 'http://scpd.stanford.edu/search/publicCourseSearchDetails.do;jsessionid=561188A06434D7D97953C4706DE12831?method=load&courseId=11685',
-    university: 'Stanford',
+    titleFr: "Prompt Engineering & Intégrations d'IA",
+    titleEn: 'Prompt Engineering & AI Integrations',
+    number: 'DeepLearning AI',
+    link: 'https://www.deeplearning.ai',
+    university: 'DeepLearning.AI',
+    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
+    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
   },
   {
-    title: 'Numerical Optimization',
-    number: 'CME 304',
-    link: 'http://web.stanford.edu/class/cme304/',
-    university: 'Stanford',
+    titleFr: 'Réseaux Informatiques & Administration Hotspot',
+    titleEn: 'Computer Networking & Hotspot Administration',
+    number: 'MikroTik MTCNA',
+    link: 'https://mikrotik.com',
+    university: 'MikroTik RouterOS',
+    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
+    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
   },
   {
-    title: 'Discrete Mathematics and Algorithms',
-    number: 'CME 305',
-    link: 'http://stanford.edu/~rezab/discrete/',
-    university: 'Stanford',
+    titleFr: 'IBM Artificial Intelligence Fundamentals',
+    titleEn: 'IBM Artificial Intelligence Fundamentals',
+    number: 'Cert. IBM',
+    link: 'https://www.credly.com',
+    university: 'IBM',
+    detailsFr: ['Certification officielle IBM sur les bases de l\'IA et du Machine Learning.'],
+    detailsEn: ['Official IBM certification on AI basics and Machine Learning.']
   },
   {
-    title: 'Stochastic Methods in Engineering',
-    number: 'CME 306',
-    link: 'http://web.stanford.edu/class/cme306/',
-    university: 'Stanford',
-  },
-  {
-    title: 'Optimization',
-    number: 'CME 307',
-    link: 'http://stanford.edu/class/cme307/',
-    university: 'Stanford',
-  },
-  {
-    title: 'Stochastic Processes',
-    number: 'CME 308',
-    link: 'http://web.stanford.edu/class/cme308/',
-    university: 'Stanford',
-  },
-  {
-    title: 'Randomized Algorithms and Probabilistic Analysis',
-    number: 'CS 365',
-    link: 'http://web.stanford.edu/class/cs365/',
-    university: 'Stanford',
-  },
-  {
-    title: 'Deep Learning for Natural Language Processing',
-    number: 'CS 224d',
-    link: 'http://cs224d.stanford.edu',
-    university: 'Stanford',
-  },
-  {
-    title: 'Mining Massive Data Sets',
-    number: 'CS 246',
-    link: 'http://web.stanford.edu/class/cs246/',
-    university: 'Stanford',
-  },
-  {
-    title: 'Computer Vision: Foundations and Applications',
-    number: 'CS 131',
-    link: 'http://vision.stanford.edu/teaching/cs131_fall1415/index.html',
-    university: 'Stanford',
-  },
+    titleFr: 'Google AI Essentials',
+    titleEn: 'Google AI Essentials',
+    number: 'Cert. Google',
+    link: 'https://grow.google',
+    university: 'Google',
+    detailsFr: ['Certification officielle Google sur l\'utilisation de l\'IA générative au quotidien.'],
+    detailsEn: ['Official Google certification on everyday usage of generative AI.']
+  }
 ];
 
 export default courses;

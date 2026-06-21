@@ -3,61 +3,62 @@ import { describe, expect, it } from 'vitest';
 import { aboutMarkdown } from '../about';
 
 describe('about data', () => {
-  it('exports aboutMarkdown as a string', () => {
-    expect(typeof aboutMarkdown).toBe('string');
-    expect(aboutMarkdown.length).toBeGreaterThan(0);
+  it('exports aboutMarkdown as an object with fr and en keys', () => {
+    expect(typeof aboutMarkdown).toBe('object');
+    expect(typeof aboutMarkdown.fr).toBe('string');
+    expect(typeof aboutMarkdown.en).toBe('string');
+    expect(aboutMarkdown.fr.length).toBeGreaterThan(0);
+    expect(aboutMarkdown.en.length).toBeGreaterThan(0);
   });
 
   it('contains the intro section', () => {
-    expect(aboutMarkdown).toContain('# Intro');
-    expect(aboutMarkdown).toContain('OpenAI');
-    expect(aboutMarkdown).toContain('Promptfoo');
+    expect(aboutMarkdown.fr).toContain('# Intro');
+    expect(aboutMarkdown.fr).toContain('béninois');
+    expect(aboutMarkdown.en).toContain('# Intro');
+    expect(aboutMarkdown.en).toContain('Beninese');
+  });
+
+  it('contains the vision section', () => {
+    expect(aboutMarkdown.fr).toContain('# Ma Vision');
+    expect(aboutMarkdown.fr).toContain('Afrique');
+    expect(aboutMarkdown.en).toContain('# My Vision');
+    expect(aboutMarkdown.en).toContain('Africa');
   });
 
   it('contains the history section', () => {
-    expect(aboutMarkdown).toContain('# Some History');
-    expect(aboutMarkdown).toContain('MS-DOS');
+    expect(aboutMarkdown.fr).toContain('# Mon Histoire / Timeline');
+    expect(aboutMarkdown.fr).toContain('Baccalauréat');
+    expect(aboutMarkdown.en).toContain('# My Story / Timeline');
+    expect(aboutMarkdown.en).toContain('Baccalaureate');
   });
 
   it('contains the likes section', () => {
-    expect(aboutMarkdown).toContain('# I Like');
-    expect(aboutMarkdown).toContain('Running');
-    expect(aboutMarkdown).toContain('Skiing');
-  });
-
-  it('contains the travel section', () => {
-    expect(aboutMarkdown).toContain('# Travel / Geography');
-    expect(aboutMarkdown).toContain('Buffalo, New York');
-  });
-
-  it('contains the fun facts section', () => {
-    expect(aboutMarkdown).toContain('# Fun Facts');
-  });
-
-  it('contains the dreams section', () => {
-    expect(aboutMarkdown).toContain('# I Dream Of');
-    expect(aboutMarkdown).toContain('Staying curious');
-  });
-
-  it('contains the admired websites section', () => {
-    expect(aboutMarkdown).toContain('# Websites from People I Admire');
+    expect(aboutMarkdown.fr).toContain("# J'aime / Centres d'intérêt");
+    expect(aboutMarkdown.fr).toContain('Design');
+    expect(aboutMarkdown.en).toContain('# Likes / Interests');
+    expect(aboutMarkdown.en).toContain('Design');
   });
 
   it('contains valid markdown links', () => {
-    // Check for markdown link format [text](url)
     const linkRegex = /\[.+?\]\(.+?\)/g;
-    const links = aboutMarkdown.match(linkRegex);
+    const linksFr = aboutMarkdown.fr.match(linkRegex);
+    const linksEn = aboutMarkdown.en.match(linkRegex);
 
-    expect(links).not.toBeNull();
-    expect(links!.length).toBeGreaterThan(10);
+    expect(linksFr).not.toBeNull();
+    expect(linksFr!.length).toBeGreaterThan(0);
+    expect(linksEn).not.toBeNull();
+    expect(linksEn!.length).toBeGreaterThan(0);
   });
 
   it('contains properly formatted headers', () => {
-    // Check for markdown headers
     const headerRegex = /^#+ .+$/gm;
-    const headers = aboutMarkdown.match(headerRegex);
+    const headersFr = aboutMarkdown.fr.match(headerRegex);
+    const headersEn = aboutMarkdown.en.match(headerRegex);
 
-    expect(headers).not.toBeNull();
-    expect(headers!.length).toBeGreaterThan(5);
+    expect(headersFr).not.toBeNull();
+    expect(headersFr!.length).toBeGreaterThanOrEqual(4);
+    expect(headersEn).not.toBeNull();
+    expect(headersEn!.length).toBeGreaterThanOrEqual(4);
   });
 });
+

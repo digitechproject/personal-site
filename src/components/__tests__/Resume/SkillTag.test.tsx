@@ -9,16 +9,24 @@ const mockCategories = [
 ];
 
 describe('SkillTag', () => {
-  it('renders the skill title', () => {
-    const skill = { title: 'Python', competency: 5, category: ['Languages'] };
+  it('renders the skill title in English', () => {
+    const skill = { titleFr: 'Python_FR', titleEn: 'Python_EN', competency: 5, category: ['Languages'] };
 
-    render(<SkillTag data={skill} categories={mockCategories} />);
+    render(<SkillTag data={skill} categories={mockCategories} lang="en" />);
 
-    expect(screen.getByText('Python')).toBeInTheDocument();
+    expect(screen.getByText('Python_EN')).toBeInTheDocument();
+  });
+
+  it('renders the skill title in French', () => {
+    const skill = { titleFr: 'Python_FR', titleEn: 'Python_EN', competency: 5, category: ['Languages'] };
+
+    render(<SkillTag data={skill} categories={mockCategories} lang="fr" />);
+
+    expect(screen.getByText('Python_FR')).toBeInTheDocument();
   });
 
   it('applies large size class for competency 5', () => {
-    const skill = { title: 'Python', competency: 5, category: ['Languages'] };
+    const skill = { titleFr: 'Python', titleEn: 'Python', competency: 5, category: ['Languages'] };
 
     render(<SkillTag data={skill} categories={mockCategories} />);
 
@@ -28,7 +36,8 @@ describe('SkillTag', () => {
 
   it('applies medium size class for competency 4', () => {
     const skill = {
-      title: 'JavaScript',
+      titleFr: 'JavaScript',
+      titleEn: 'JavaScript',
       competency: 4,
       category: ['Languages'],
     };
@@ -40,7 +49,7 @@ describe('SkillTag', () => {
   });
 
   it('applies small size class for competency 3 or below', () => {
-    const skill = { title: 'Ruby', competency: 3, category: ['Languages'] };
+    const skill = { titleFr: 'Ruby', titleEn: 'Ruby', competency: 3, category: ['Languages'] };
 
     render(<SkillTag data={skill} categories={mockCategories} />);
 
@@ -49,7 +58,7 @@ describe('SkillTag', () => {
   });
 
   it('sets category color as CSS variable', () => {
-    const skill = { title: 'Python', competency: 5, category: ['Languages'] };
+    const skill = { titleFr: 'Python', titleEn: 'Python', competency: 5, category: ['Languages'] };
 
     render(<SkillTag data={skill} categories={mockCategories} />);
 
@@ -59,7 +68,8 @@ describe('SkillTag', () => {
 
   it('uses first matching category color for multi-category skills', () => {
     const skill = {
-      title: 'Python',
+      titleFr: 'Python',
+      titleEn: 'Python',
       competency: 5,
       category: ['Languages', 'ML Engineering'],
     };
@@ -71,3 +81,4 @@ describe('SkillTag', () => {
     expect(tag.style.getPropertyValue('--tag-color')).toBe('#6968b3');
   });
 });
+

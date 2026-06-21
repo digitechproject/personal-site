@@ -2,9 +2,14 @@ import contact from '@/data/contact';
 import degrees from '@/data/resume/degrees';
 import work from '@/data/resume/work';
 import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
+import { Language } from '@/data/translations';
 import JsonLd from './JsonLd';
 
-export default function PersonSchema() {
+interface PersonSchemaProps {
+  lang?: Language;
+}
+
+export default function PersonSchema({ lang = 'fr' }: PersonSchemaProps) {
   // Extract social links for sameAs (excluding email)
   const socialLinks = contact
     .filter((item) => !item.link.startsWith('mailto:'))
@@ -23,7 +28,7 @@ export default function PersonSchema() {
     name: AUTHOR_NAME,
     url: SITE_URL,
     image: `${SITE_URL}/images/me.jpg`,
-    jobTitle: currentJob.position,
+    jobTitle: lang === 'en' ? currentJob.positionEn : currentJob.positionFr,
     ...(email && { email }),
     sameAs: socialLinks,
     worksFor: {
@@ -40,3 +45,4 @@ export default function PersonSchema() {
 
   return <JsonLd data={personData} />;
 }
+

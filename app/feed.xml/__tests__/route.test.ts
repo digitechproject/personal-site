@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
 import { SITE_URL } from '@/lib/utils';
-
 import { GET } from '../route';
 
 describe('feed.xml route', () => {
@@ -10,9 +9,9 @@ describe('feed.xml route', () => {
     const xml = await response.text();
 
     expect(xml).toContain(`${SITE_URL}/writing/`);
-    expect(xml).toContain(`${SITE_URL}/writing/claude-code-outage/`);
-    expect(xml).toContain(`${SITE_URL}/writing/eurostar-chatbot-analysis/`);
-    expect(xml).toContain(`${SITE_URL}/writing/shipping-with-claude-code/`);
+    expect(xml).toContain(`${SITE_URL}/fr/writing/bienvenue-sur-mon-site/`);
+    expect(xml).toContain(`${SITE_URL}/en/writing/welcome-to-my-site/`);
+    expect(xml).toContain('#coming-soon');
   });
 
   it('keeps the feed self link file-like', async () => {

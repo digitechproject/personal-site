@@ -1,15 +1,31 @@
 import dayjs from 'dayjs';
 
 import type { Position } from '@/data/resume/work';
-
+import { Language } from '@/data/translations';
 import JobSummary from './JobSummary';
 
 interface JobProps {
   data: Position;
+  lang?: Language;
 }
 
-export default function Job({ data }: JobProps) {
-  const { name, position, url, startDate, endDate, summary, highlights } = data;
+export default function Job({ data, lang = 'fr' }: JobProps) {
+  const {
+    name,
+    positionFr,
+    positionEn,
+    url,
+    startDate,
+    endDate,
+    summaryFr,
+    summaryEn,
+    highlightsFr,
+    highlightsEn,
+  } = data;
+
+  const position = lang === 'en' ? positionEn : positionFr;
+  const summary = lang === 'en' ? summaryEn : summaryFr;
+  const highlights = lang === 'en' ? highlightsEn : highlightsFr;
 
   return (
     <article className="jobs-container">
@@ -26,7 +42,7 @@ export default function Job({ data }: JobProps) {
           {endDate ? (
             <time dateTime={endDate}>{dayjs(endDate).format('MMMM YYYY')}</time>
           ) : (
-            'Present'
+            lang === 'en' ? 'Present' : 'Aujourd’hui'
           )}
         </p>
       </header>

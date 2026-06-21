@@ -6,19 +6,22 @@ import Course from '../../Resume/Courses/Course';
 
 const mockCourses = [
   {
-    title: 'Machine Learning',
+    titleFr: 'Apprentissage Automatique',
+    titleEn: 'Machine Learning',
     number: 'CS 229',
     link: 'http://cs229.stanford.edu/',
     university: 'Stanford',
   },
   {
-    title: 'Deep Learning',
+    titleFr: 'Apprentissage Profond',
+    titleEn: 'Deep Learning',
     number: 'CS 230',
     link: 'http://cs230.stanford.edu/',
     university: 'Stanford',
   },
   {
-    title: 'Algorithms',
+    titleFr: 'Algorithmes',
+    titleEn: 'Algorithms',
     number: 'CS 161',
     link: 'http://cs161.stanford.edu/',
     university: 'MIT',
@@ -26,24 +29,32 @@ const mockCourses = [
 ];
 
 describe('Courses', () => {
-  it('renders the courses section with title', () => {
-    render(<Courses data={mockCourses} />);
-
+  it('renders the courses section with localized title', () => {
+    render(<Courses data={mockCourses} lang="en" />);
     expect(
-      screen.getByRole('heading', { name: /selected courses/i }),
+      screen.getByRole('heading', { name: /courses/i }),
+    ).toBeInTheDocument();
+
+    render(<Courses data={mockCourses} lang="fr" />);
+    expect(
+      screen.getByRole('heading', { name: /formations/i }),
     ).toBeInTheDocument();
   });
 
-  it('renders all courses', () => {
-    render(<Courses data={mockCourses} />);
-
+  it('renders all courses based on lang', () => {
+    render(<Courses data={mockCourses} lang="en" />);
     expect(screen.getByText('Machine Learning')).toBeInTheDocument();
     expect(screen.getByText('Deep Learning')).toBeInTheDocument();
     expect(screen.getByText('Algorithms')).toBeInTheDocument();
+
+    render(<Courses data={mockCourses} lang="fr" />);
+    expect(screen.getByText('Apprentissage Automatique')).toBeInTheDocument();
+    expect(screen.getByText('Apprentissage Profond')).toBeInTheDocument();
+    expect(screen.getByText('Algorithmes')).toBeInTheDocument();
   });
 
   it('renders course numbers', () => {
-    render(<Courses data={mockCourses} />);
+    render(<Courses data={mockCourses} lang="en" />);
 
     expect(screen.getByText(/CS 229/)).toBeInTheDocument();
     expect(screen.getByText(/CS 230/)).toBeInTheDocument();
@@ -51,7 +62,7 @@ describe('Courses', () => {
   });
 
   it('renders courses as list items', () => {
-    render(<Courses data={mockCourses} />);
+    render(<Courses data={mockCourses} lang="en" />);
 
     const list = screen.getByRole('list');
     expect(list).toBeInTheDocument();
@@ -60,17 +71,8 @@ describe('Courses', () => {
     expect(items.length).toBe(mockCourses.length);
   });
 
-  it('sorts courses by university then number', () => {
-    render(<Courses data={mockCourses} />);
-
-    const items = screen.getAllByRole('listitem');
-    // Stanford courses should come before MIT (reverse alpha)
-    // And within Stanford, sorted by number
-    expect(items.length).toBe(3);
-  });
-
   it('has anchor link for navigation', () => {
-    render(<Courses data={mockCourses} />);
+    render(<Courses data={mockCourses} lang="en" />);
 
     const anchor = document.getElementById('courses');
     expect(anchor).toBeInTheDocument();
@@ -79,28 +81,34 @@ describe('Courses', () => {
 
 describe('Course', () => {
   const mockCourse = {
-    title: 'Machine Learning',
+    titleFr: 'Apprentissage Automatique',
+    titleEn: 'Machine Learning',
     number: 'CS 229',
     link: 'http://cs229.stanford.edu/',
     university: 'Stanford',
   };
 
-  it('renders course number and title', () => {
-    render(<Course data={mockCourse} />);
-
+  it('renders course number and title in English', () => {
+    render(<Course data={mockCourse} lang="en" />);
     expect(screen.getByText(/CS 229/)).toBeInTheDocument();
     expect(screen.getByText('Machine Learning')).toBeInTheDocument();
   });
 
+  it('renders course number and title in French', () => {
+    render(<Course data={mockCourse} lang="fr" />);
+    expect(screen.getByText(/CS 229/)).toBeInTheDocument();
+    expect(screen.getByText('Apprentissage Automatique')).toBeInTheDocument();
+  });
+
   it('renders course as link', () => {
-    render(<Course data={mockCourse} />);
+    render(<Course data={mockCourse} lang="en" />);
 
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', mockCourse.link);
   });
 
   it('renders as list item', () => {
-    render(<Course data={mockCourse} />);
+    render(<Course data={mockCourse} lang="en" />);
 
     const item = screen.getByRole('listitem');
     expect(item).toBeInTheDocument();

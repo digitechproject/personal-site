@@ -4,17 +4,23 @@ import { SITE_URL } from '@/lib/utils';
 import sitemap from '../sitemap';
 
 describe('sitemap', () => {
-  it('uses trailing slashes for exported page routes', () => {
+  it('uses trailing slashes for exported page routes in both languages', () => {
     const entries = sitemap();
 
     expect(entries).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ url: `${SITE_URL}/about/` }),
-        expect.objectContaining({ url: `${SITE_URL}/resume/` }),
-        expect.objectContaining({ url: `${SITE_URL}/projects/` }),
-        expect.objectContaining({ url: `${SITE_URL}/writing/` }),
-        expect.objectContaining({ url: `${SITE_URL}/stats/` }),
-        expect.objectContaining({ url: `${SITE_URL}/contact/` }),
+        expect.objectContaining({ url: `${SITE_URL}/fr/about/` }),
+        expect.objectContaining({ url: `${SITE_URL}/en/about/` }),
+        expect.objectContaining({ url: `${SITE_URL}/fr/resume/` }),
+        expect.objectContaining({ url: `${SITE_URL}/en/resume/` }),
+        expect.objectContaining({ url: `${SITE_URL}/fr/projects/` }),
+        expect.objectContaining({ url: `${SITE_URL}/en/projects/` }),
+        expect.objectContaining({ url: `${SITE_URL}/fr/writing/` }),
+        expect.objectContaining({ url: `${SITE_URL}/en/writing/` }),
+        expect.objectContaining({ url: `${SITE_URL}/fr/stats/` }),
+        expect.objectContaining({ url: `${SITE_URL}/en/stats/` }),
+        expect.objectContaining({ url: `${SITE_URL}/fr/contact/` }),
+        expect.objectContaining({ url: `${SITE_URL}/en/contact/` }),
       ]),
     );
   });
@@ -23,8 +29,10 @@ describe('sitemap', () => {
     const entries = sitemap();
     const postEntries = entries.filter(
       (entry) =>
-        entry.url.startsWith(`${SITE_URL}/writing/`) &&
-        entry.url !== `${SITE_URL}/writing/`,
+        (entry.url.startsWith(`${SITE_URL}/fr/writing/`) ||
+          entry.url.startsWith(`${SITE_URL}/en/writing/`)) &&
+        entry.url !== `${SITE_URL}/fr/writing/` &&
+        entry.url !== `${SITE_URL}/en/writing/`,
     );
 
     expect(postEntries.length).toBeGreaterThan(0);

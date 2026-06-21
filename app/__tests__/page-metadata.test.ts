@@ -1,40 +1,71 @@
 import { describe, expect, it } from 'vitest';
 
 import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
-import { metadata as aboutMetadata } from '../about/page';
-import { metadata as contactMetadata } from '../contact/page';
+import { generateMetadata as generateAboutMetadata } from '../[lang]/about/page';
+import { generateMetadata as generateContactMetadata } from '../[lang]/contact/page';
 import { metadata as notFoundMetadata } from '../not-found';
-import { metadata as projectsMetadata } from '../projects/page';
-import { metadata as resumeMetadata } from '../resume/page';
-import { metadata as statsMetadata } from '../stats/page';
-import { metadata as writingMetadata } from '../writing/page';
+import { generateMetadata as generateProjectsMetadata } from '../[lang]/projects/page';
+import { generateMetadata as generateResumeMetadata } from '../[lang]/resume/page';
+import { generateMetadata as generateStatsMetadata } from '../[lang]/stats/page';
+import { generateMetadata as generateWritingMetadata } from '../[lang]/writing/page';
 
 describe('page metadata', () => {
-  it.each([
-    ['about', aboutMetadata, `${SITE_URL}/about/`],
-    ['contact', contactMetadata, `${SITE_URL}/contact/`],
-    ['archive', projectsMetadata, `${SITE_URL}/projects/`],
-    ['resume', resumeMetadata, `${SITE_URL}/resume/`],
-    ['stats', statsMetadata, `${SITE_URL}/stats/`],
-    ['writing', writingMetadata, `${SITE_URL}/writing/`],
-  ])('sets page-specific open graph metadata for %s', (_, metadata, url) => {
-    expect(metadata.openGraph?.url).toBe(url);
-    expect(metadata.openGraph?.description).toBe(metadata.description);
-    expect(metadata.openGraph?.title).toBe(
-      `${metadata.title} | ${AUTHOR_NAME}`,
-    );
+  it('generates page-specific metadata for English', async () => {
+    const params = { lang: 'en' };
+    const aboutMetadata = await generateAboutMetadata({ params });
+    const contactMetadata = await generateContactMetadata({ params });
+    const projectsMetadata = await generateProjectsMetadata({ params });
+    const resumeMetadata = await generateResumeMetadata({ params });
+    const statsMetadata = await generateStatsMetadata({ params });
+    const writingMetadata = await generateWritingMetadata({ params });
+
+    const pages = [
+      ['about', aboutMetadata, `${SITE_URL}/en/about/`],
+      ['contact', contactMetadata, `${SITE_URL}/en/contact/`],
+      ['archive', projectsMetadata, `${SITE_URL}/en/projects/`],
+      ['resume', resumeMetadata, `${SITE_URL}/en/resume/`],
+      ['stats', statsMetadata, `${SITE_URL}/en/stats/`],
+      ['writing', writingMetadata, `${SITE_URL}/en/writing/`],
+    ] as const;
+
+    for (const [_, metadata, url] of pages) {
+      expect(metadata.openGraph?.url).toBe(url);
+      expect(metadata.openGraph?.description).toBe(metadata.description);
+      expect(metadata.openGraph?.title).toBe(
+        `${metadata.title} | ${AUTHOR_NAME}`,
+      );
+      expect(metadata.twitter?.description).toBe(metadata.description);
+      expect(metadata.twitter?.title).toBe(`${metadata.title} | ${AUTHOR_NAME}`);
+    }
   });
 
-  it.each([
-    ['about', aboutMetadata],
-    ['contact', contactMetadata],
-    ['archive', projectsMetadata],
-    ['resume', resumeMetadata],
-    ['stats', statsMetadata],
-    ['writing', writingMetadata],
-  ])('sets page-specific twitter metadata for %s', (_, metadata) => {
-    expect(metadata.twitter?.description).toBe(metadata.description);
-    expect(metadata.twitter?.title).toBe(`${metadata.title} | ${AUTHOR_NAME}`);
+  it('generates page-specific metadata for French', async () => {
+    const params = { lang: 'fr' };
+    const aboutMetadata = await generateAboutMetadata({ params });
+    const contactMetadata = await generateContactMetadata({ params });
+    const projectsMetadata = await generateProjectsMetadata({ params });
+    const resumeMetadata = await generateResumeMetadata({ params });
+    const statsMetadata = await generateStatsMetadata({ params });
+    const writingMetadata = await generateWritingMetadata({ params });
+
+    const pages = [
+      ['about', aboutMetadata, `${SITE_URL}/fr/about/`],
+      ['contact', contactMetadata, `${SITE_URL}/fr/contact/`],
+      ['archive', projectsMetadata, `${SITE_URL}/fr/projects/`],
+      ['resume', resumeMetadata, `${SITE_URL}/fr/resume/`],
+      ['stats', statsMetadata, `${SITE_URL}/fr/stats/`],
+      ['writing', writingMetadata, `${SITE_URL}/fr/writing/`],
+    ] as const;
+
+    for (const [_, metadata, url] of pages) {
+      expect(metadata.openGraph?.url).toBe(url);
+      expect(metadata.openGraph?.description).toBe(metadata.description);
+      expect(metadata.openGraph?.title).toBe(
+        `${metadata.title} | ${AUTHOR_NAME}`,
+      );
+      expect(metadata.twitter?.description).toBe(metadata.description);
+      expect(metadata.twitter?.title).toBe(`${metadata.title} | ${AUTHOR_NAME}`);
+    }
   });
 
   it('overrides 404 share metadata without inventing a canonical url', () => {
@@ -53,7 +84,8 @@ describe('page metadata', () => {
     );
   });
 
-  it('preserves the writing rss alternate', () => {
+  it('preserves the writing rss alternate', async () => {
+    const writingMetadata = await generateWritingMetadata({ params: { lang: 'en' } });
     expect(writingMetadata.alternates?.types?.['application/rss+xml']).toBe(
       '/feed.xml',
     );

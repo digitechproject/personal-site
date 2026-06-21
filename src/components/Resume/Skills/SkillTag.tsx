@@ -2,14 +2,18 @@ import type { CSSProperties } from 'react';
 
 import type { Category, Skill } from '@/data/resume/skills';
 import { MAX_COMPETENCY } from '@/lib/utils';
+import { Language } from '@/data/translations';
 
 interface SkillTagProps {
   data: Skill;
   categories: Category[];
+  lang?: Language;
 }
 
-export default function SkillTag({ data, categories }: SkillTagProps) {
-  const { category, competency, title } = data;
+export default function SkillTag({ data, categories, lang = 'fr' }: SkillTagProps) {
+  const { category, competency, titleFr, titleEn } = data;
+
+  const title = lang === 'en' ? titleEn : titleFr;
 
   // Get the primary category color
   const categoryColor = categories.find((cat) =>
@@ -24,6 +28,9 @@ export default function SkillTag({ data, categories }: SkillTagProps) {
         ? 'skill-tag--md'
         : 'skill-tag--sm';
 
+  const outOfText = lang === 'en' ? 'out of' : 'sur';
+  const profText = lang === 'en' ? 'proficiency' : 'niveau';
+
   return (
     <span
       className={`skill-tag ${sizeClass}`}
@@ -32,8 +39,8 @@ export default function SkillTag({ data, categories }: SkillTagProps) {
           '--tag-color': categoryColor,
         } as CSSProperties
       }
-      title={`${title}: ${competency} out of ${MAX_COMPETENCY}`}
-      aria-label={`${title}: proficiency ${competency} out of ${MAX_COMPETENCY}`}
+      title={`${title}: ${competency} ${outOfText} ${MAX_COMPETENCY}`}
+      aria-label={`${title}: ${profText} ${competency} ${outOfText} ${MAX_COMPETENCY}`}
     >
       <span className="skill-tag-name">{title}</span>
     </span>

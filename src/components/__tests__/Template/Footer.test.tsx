@@ -1,9 +1,19 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import Footer from '../../Template/Footer';
 
+// Mock usePathname
+const mockPathname = vi.fn();
+vi.mock('next/navigation', () => ({
+  usePathname: () => mockPathname(),
+}));
+
 describe('Footer', () => {
+  beforeEach(() => {
+    mockPathname.mockReturnValue('/fr/');
+  });
+
   it('renders the footer with correct structure', () => {
     render(<Footer />);
 
@@ -11,12 +21,22 @@ describe('Footer', () => {
     expect(footer).toBeInTheDocument();
   });
 
-  it('displays the name and role', () => {
+  it('displays the name and role in French by default', () => {
     render(<Footer />);
 
-    expect(screen.getByText("Michael D'Angelo")).toBeInTheDocument();
+    expect(screen.getByText("Fernando HOUSSOU")).toBeInTheDocument();
     expect(
-      screen.getByText('Member of the Technical Staff at OpenAI'),
+      screen.getByText('Fondateur & Directeur at SOFITAR'),
+    ).toBeInTheDocument();
+  });
+
+  it('displays the name and role in English', () => {
+    mockPathname.mockReturnValue('/en/');
+    render(<Footer />);
+
+    expect(screen.getByText("Fernando HOUSSOU")).toBeInTheDocument();
+    expect(
+      screen.getByText('Founder & Director at SOFITAR'),
     ).toBeInTheDocument();
   });
 
@@ -29,24 +49,46 @@ describe('Footer', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders navigation links', () => {
+  it('renders navigation links in French', () => {
+    render(<Footer />);
+
+    expect(screen.getByRole('link', { name: /à propos/i })).toHaveAttribute(
+      'href',
+      '/fr/about',
+    );
+    expect(screen.getByRole('link', { name: /cv/i })).toHaveAttribute(
+      'href',
+      '/fr/resume',
+    );
+    expect(screen.getByRole('link', { name: /projets/i })).toHaveAttribute(
+      'href',
+      '/fr/projects',
+    );
+    expect(screen.getByRole('link', { name: /contact/i })).toHaveAttribute(
+      'href',
+      '/fr/contact',
+    );
+  });
+
+  it('renders navigation links in English', () => {
+    mockPathname.mockReturnValue('/en/');
     render(<Footer />);
 
     expect(screen.getByRole('link', { name: /about/i })).toHaveAttribute(
       'href',
-      '/about',
+      '/en/about',
     );
     expect(screen.getByRole('link', { name: /resume/i })).toHaveAttribute(
       'href',
-      '/resume',
+      '/en/resume',
     );
     expect(screen.getByRole('link', { name: /projects/i })).toHaveAttribute(
       'href',
-      '/projects',
+      '/en/projects',
     );
     expect(screen.getByRole('link', { name: /contact/i })).toHaveAttribute(
       'href',
-      '/contact',
+      '/en/contact',
     );
   });
 
@@ -56,13 +98,14 @@ describe('Footer', () => {
     // Contact icons are rendered via ContactIcons component
     const socialSection = document.querySelector('.footer-social');
     expect(socialSection).toBeInTheDocument();
-    expect(screen.getByText('Connect')).toBeInTheDocument();
+    expect(screen.getByText('Réseaux')).toBeInTheDocument();
   });
 
   it('has link to home from avatar', () => {
     render(<Footer />);
 
     const avatarLink = document.querySelector('.footer-avatar');
-    expect(avatarLink).toHaveAttribute('href', '/');
+    expect(avatarLink).toHaveAttribute('href', '/fr');
   });
 });
+

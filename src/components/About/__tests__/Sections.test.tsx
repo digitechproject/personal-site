@@ -85,8 +85,8 @@ Lead paragraph.
   });
 
   it('renders section navigation and self-links for the real about markdown', () => {
-    const sectionTitles = getActualSectionTitles(aboutMarkdown);
-    const { container } = render(<AboutContent markdown={aboutMarkdown} />);
+    const sectionTitles = getActualSectionTitles(aboutMarkdown.fr);
+    const { container } = render(<AboutContent markdown={aboutMarkdown.fr} />);
     const nav = screen.getByRole('navigation', { name: 'About sections' });
 
     expect(within(nav).getAllByRole('link')).toHaveLength(sectionTitles.length);
@@ -108,46 +108,46 @@ Lead paragraph.
 
   it('renders matching hash links and heading ids into static markup', () => {
     const html = renderToStaticMarkup(
-      <AboutContent markdown={aboutMarkdown} />,
+      <AboutContent markdown={aboutMarkdown.fr} />,
     );
 
-    expect(html).toContain('href="#some-history"');
-    expect(html).toContain('id="some-history"');
-    expect(html).toContain('href="#travel-geography"');
-    expect(html).toContain('id="travel-geography"');
+    expect(html).toContain('href="#ma-vision"');
+    expect(html).toContain('id="ma-vision"');
+    expect(html).toContain('href="#mon-histoire-timeline"');
+    expect(html).toContain('id="mon-histoire-timeline"');
   });
 
   it('supports same-page hash navigation from section links', async () => {
     window.history.replaceState({}, '', '/about/');
 
-    render(<AboutContent markdown={aboutMarkdown} />);
+    render(<AboutContent markdown={aboutMarkdown.fr} />);
 
     const nav = screen.getByRole('navigation', { name: 'About sections' });
     const navLink = within(nav).getByRole('link', {
-      name: 'Travel / Geography',
+      name: 'Mon Histoire / Timeline',
     });
 
     navLink.click();
 
     await waitFor(() => {
-      expect(window.location.hash).toBe('#travel-geography');
+      expect(window.location.hash).toBe('#mon-histoire-timeline');
     });
     expect(document.querySelector(window.location.hash)).toHaveTextContent(
-      'Travel / Geography',
+      'Mon Histoire / Timeline',
     );
 
-    const heading = screen.getByRole('heading', { name: 'Fun Facts' });
+    const heading = screen.getByRole('heading', { name: "J'aime / Centres d'intérêt" });
     const permalink = within(heading).getByRole('link', {
-      name: 'Fun Facts',
+      name: "J'aime / Centres d'intérêt",
     });
 
     permalink.click();
 
     await waitFor(() => {
-      expect(window.location.hash).toBe('#fun-facts');
+      expect(window.location.hash).toBe('#jaime-centres-dinteret');
     });
     expect(document.querySelector(window.location.hash)).toHaveTextContent(
-      'Fun Facts',
+      "J'aime / Centres d'intérêt",
     );
   });
 });

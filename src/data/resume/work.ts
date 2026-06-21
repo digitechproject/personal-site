@@ -1,149 +1,140 @@
-/**
- * Conforms to https://jsonresume.org/schema/
- */
 export interface Position {
   name: string;
-  position: string;
+  positionFr: string;
+  positionEn: string;
   url: string;
   startDate: string;
   endDate?: string;
-  summary?: string;
-  highlights?: string[];
+  summaryFr?: string;
+  summaryEn?: string;
+  highlightsFr?: string[];
+  highlightsEn?: string[];
 }
 
 const work: Position[] = [
   {
-    name: 'OpenAI',
-    position: 'Member of the Technical Staff',
-    url: 'https://openai.com',
-    startDate: '2026-03-09',
-    summary: `Building evaluation, red-teaming, and hardening infrastructure for AI systems
-    at OpenAI, with a focus on Promptfoo and agent security.`,
-  },
-  {
-    name: 'Promptfoo',
-    position: 'Co-founder & CTO',
-    url: 'https://promptfoo.dev',
-    startDate: '2024-07-01',
-    endDate: '2026-03-09',
-    summary: `Promptfoo started as a developer-first eval tool and grew into a platform
-    for AI security, red-teaming, and compliance. We scaled it to more than 350,000 developers, 130,000
-    monthly active users, and teams at more than 25% of the Fortune 500 before selling the company to OpenAI.`,
-    highlights: [
-      'Owned company-wide technical strategy and product roadmap across open-source adoption, commercial product, and research investments.',
-      'Co-led the company through its sale to OpenAI in March 2026.',
-      'Helped turn Promptfoo from an open-source eval tool into an enterprise AI security product used by large companies and frontier labs.',
-      'Built and scaled the company from founding to 23 people across engineering, GTM, and operations.',
-      'Led technical due diligence and fundraising through $23.4M in venture financing from Insight Partners and Andreessen Horowitz.',
-      'Led development of core evaluation framework, vulnerability scanning, static analysis, and automated red-teaming capabilities.',
+    name: 'SOFITAR',
+    positionFr: 'Fondateur & Directeur',
+    positionEn: 'Founder & Director',
+    url: '#',
+    startDate: '2025-01-01',
+    summaryFr: `Création et structuration d'une entreprise orientée solutions digitales,
+    communication professionnelle, intégrations de l'IA et développement de produits numériques.
+    SOFITAR est composée de deux branches : SOFITAR Digital (développement web, automatisation)
+    et SOFITAR Communication (branding, identité de marque, direction artistique).`,
+    summaryEn: `Creation and structuring of a digital solutions company, offering
+    professional communication, AI integrations, and digital product development.
+    SOFITAR consists of two branches: SOFITAR Digital (web development, automation)
+    and SOFITAR Communication (branding, brand identity, art direction).`,
+    highlightsFr: [
+      "Supervision de la vision globale de l'entreprise et coordination des équipes pluridisciplinaires.",
+      "Développement de produits numériques internes et accompagnement technique/opérationnel d'entreprises locales.",
+      "Mise en place de systèmes d'automatisation basés sur l'intelligence artificielle pour optimiser les workflows."
+    ],
+    highlightsEn: [
+      "Supervising the company's overall vision and coordinating multidisciplinary teams.",
+      "Developing internal digital products and providing technical/operational support to local businesses.",
+      "Implementing AI-based automation systems to optimize workflows."
     ],
   },
   {
-    name: 'Smile ID',
-    position: 'VP Engineering & Head of AI',
-    url: 'https://usesmileid.com',
-    startDate: '2022-01-01',
-    endDate: '2024-07-01',
-    summary: `Smile Identity provides ML-powered identity verification APIs used by banks, fintechs, and
-    telcos across Africa. Promoted from Director to VP Engineering to VP Engineering & Head of AI within one year,
-    leading teams building APIs that now process hundreds of millions of identity checks.`,
-    highlights: [
-      'Owned engineering org design, headcount planning, and hiring across backend and ML teams, growing to 20+ engineers.',
-      'Transformed engineering velocity from weekly releases to continuous deployment, migrating to TypeScript, adding tests in CI, and leading ceremonies.',
-      'Re-architected inference APIs on AWS Lambda, scaling from 1,000 to 1M+ users per day and cutting job time from 30+ seconds to 7 seconds.',
-      'Built computer vision pipelines for liveness detection certification.',
-      'Pitched, designed, and shipped a fraud detection product using 1-N facial recognition with embeddings and vector search.',
+    name: 'Digital Marketing Academy (DMA)',
+    positionFr: 'Formateur & Animateur WordPress & Montage Vidéo',
+    positionEn: 'WordPress & Video Editing Trainer',
+    url: '#',
+    startDate: '2025-01-01',
+    summaryFr: `Animation de sessions de formation pratique destinées à des professionnels et étudiants pour maîtriser la création de sites web WordPress et le montage vidéo publicitaire professionnel.`,
+    summaryEn: `Leading practical training sessions for professionals and students to master WordPress website creation and professional marketing video editing.`,
+    highlightsFr: [
+      "Formation complète sur la création de sites web WordPress : prise en main de LocalWP, de l’interface d’administration et conception de pages modernes avec Elementor.",
+      "Formation pratique au montage vidéo publicitaire professionnel avec CapCut et Filmora, axée sur la création de contenus marketing à fort impact.",
+      "Accompagnement personnalisé et ateliers de mise en situation réelle pour les étudiants."
+    ],
+    highlightsEn: [
+      "Comprehensive training on WordPress website creation: mastering LocalWP, administration interface, and modern page design with Elementor.",
+      "Hands-on training in professional marketing video editing with CapCut and Filmora, focused on high-impact promotional content.",
+      "Personalized coaching and real-world practical workshops for students."
     ],
   },
   {
-    name: 'Skeptical Investments',
-    position: 'Co-founder',
-    url: 'http://skepticalinvestments.biz',
-    startDate: '2017-04-01',
-    summary: `Skeptical Investments is a micro-VC fund focused on early-stage technical founders,
-    with investments in ML, infrastructure, and space startups.`,
-    highlights: [
-      'Created InstaSafe, a tool that automates YC-standard investment documents.',
-      'Advise portfolio founders on ML, infrastructure, hiring, and fundraising strategy.',
+    name: 'LGA Bénin / Ahizan.com',
+    positionFr: 'Directeur Opérationnel & Stratège UX/UI',
+    positionEn: 'Chief Operating Officer & UX/UI Strategist',
+    url: 'https://ahizan.com',
+    startDate: '2022-05-01',
+    summaryFr: `Les Grandes Affaires (LGA) est une marketplace locale conçue pour rapprocher les vendeurs et acheteurs au Bénin. LGA Bénin a officiellement évolué vers Ahizan.com en décembre 2025 dans le cadre de l'évolution et du repositionnement de la plateforme. J'y ai supervisé l'évolution produit, l'expérience utilisateur, le branding et la stratégie commerciale pour adapter la plateforme aux réalités et contraintes du marché africain.`,
+    summaryEn: `Les Grandes Affaires (LGA) is a local marketplace designed to connect buyers and sellers in Benin. LGA Bénin officially evolved into Ahizan.com in December 2025 as part of the platform's growth and repositioning. I supervised product evolution, user experience, branding, and commercial strategy to adapt the platform to the realities and constraints of the African market.`,
+    highlightsFr: [
+      "Conception et optimisation de l'UI/UX de la plateforme web et de l'architecture multi-portails (vendeurs, clients).",
+      "Coordination d'une équipe opérationnelle sur le terrain pour le recrutement et l'accompagnement des marchands peu digitalisés.",
+      "Branding, design social media et élaboration de campagnes de communication locales pour renforcer la confiance.",
+      "Mise en place de solutions d'authentification centralisée (SSO) pour l'écosystème LGA."
+    ],
+    highlightsEn: [
+      "Designing and optimizing UI/UX for the web platform and the multi-portal architecture (merchants, customers).",
+      "Coordinating a field operations team to recruit and support under-digitalized merchants.",
+      "Branding, social media design, and executing local communication campaigns to foster trust.",
+      "Implementing Centralized Single Sign-On (SSO) authentication solutions for the LGA ecosystem."
     ],
   },
   {
-    name: 'Arthena',
-    position: 'Co-founder & CTO',
-    url: 'https://arthena.com',
-    startDate: '2014-01-01',
-    endDate: '2022-01-01',
-    summary: `Arthena was a quantitative art investment platform backed by <a href='https://www.anthemis.com/'>Anthemis</a>,
-    <a href='https://foundationcapital.com'>Foundation Capital</a>, and <a href='https://ycombinator.com'>Y Combinator</a>.
-    Built Arthena from idea to acquisition by Masterworks in 2023.`,
-    highlights: [
-      'Co-founded Arthena and led technical strategy; sat on board and led fundraising, including debt financing for a 9-figure investment vehicle in the auction guarantee market.',
-      'Built and managed a cross-functional team of 20 engineers, data scientists, and analysts.',
-      'Built data pipelines, quantitative research tools, and visualization systems to scale investment research and augment analyst decision-making.',
-      'Developed valuation models on irregularly-sampled time series using graph embeddings, probabilistic forecasting with calibrated prediction intervals, and online learning with walk-forward validation.',
-      'Designed micro-service architecture for data collection, feature engineering, backtesting, and reporting.',
+    name: 'RestooGo',
+    positionFr: 'Fondateur & Concepteur Produit',
+    positionEn: 'Founder & Product Designer',
+    url: 'https://restaurant-hoteldulac.com',
+    startDate: '2022-09-01',
+    summaryFr: `RestooGo est une solution SaaS pensée pour aider les restaurants à digitaliser leur carte,
+    faciliter la commande par QR code, améliorer l'expérience client et accroître leur visibilité en ligne.`,
+    summaryEn: `RestooGo is a SaaS solution designed to help restaurants digitize their menus,
+    facilitate QR code ordering, enhance the customer experience, and grow their online visibility.`,
+    highlightsFr: [
+      "Conception de l'architecture produit et du design des interfaces utilisateur (menus interactifs, prise de commande).",
+      "Développement de prototypes fonctionnels et validation terrain auprès de restaurants et lounges à Cotonou.",
+      "Stratégie de positionnement marketing et d'acquisition de restaurants partenaires."
+    ],
+    highlightsEn: [
+      "Designing the product architecture and user interfaces (interactive menus, order capture).",
+      "Developing functional prototypes and conducting field validation with lounges and restaurants in Cotonou.",
+      "Creating marketing positioning and partnership acquisition strategies for restaurants."
     ],
   },
   {
-    name: 'Matroid',
-    position: 'Co-founder',
-    url: 'https://matroid.com',
-    startDate: '2015-09-01',
-    endDate: '2016-06-01',
-    summary: `Matroid is a computer vision platform for creating and deploying detectors, now funded by
-    <a href='https://www.nea.com'>NEA</a> and <a href='https://www.accel.com'>Accel</a>. I co-founded
-    the company and built the initial product through our first fundraise.`,
-    highlights: [
-      'Defined company vision and product strategy.',
-      'Architected and built the initial detector platform for identifying objects, events, and patterns in video.',
-      'Led technical fundraising efforts for seed round.',
+    name: 'Digital Olayemi / Digiola Com & Pub',
+    positionFr: 'Chef Opérationnel',
+    positionEn: 'Operations Lead',
+    url: '#',
+    startDate: '2021-01-01',
+    endDate: '2024-05-31',
+    summaryFr: `Digiola est une agence de communication et de publicité. J'y ai piloté l'organisation client,
+    l'accompagnement opérationnel de projets de communication digitale et la gestion des activités terrain.`,
+    summaryEn: `Digiola is a communication and advertising agency. I managed client onboarding,
+    digital communication campaign execution, and local field activities.`,
+    highlightsFr: [
+      "Supervision opérationnelle des campagnes publicitaires et de la production de contenus digitaux.",
+      "Prospection commerciale, relations clients et gestion des prestations logistiques et techniques."
+    ],
+    highlightsEn: [
+      "Operational supervision of advertising campaigns and digital content production.",
+      "Sales prospection, client relations, and logistics/technical delivery management."
     ],
   },
   {
-    name: 'Planet',
-    position: 'Avionics Intern',
-    url: 'https://planet.com',
-    startDate: '2014-06-01',
-    endDate: '2015-01-01',
-    highlights: [
-      'Built models for cloud detection and optimal exposure using Earth albedo, incorporating sensor physics, astronomy, and optics.',
-      'Worked with optics and camera hardware; developed satellite software in C++ and Python (OpenCV, NumPy, SciPy).',
+    name: 'Freelance',
+    positionFr: 'Designer UI/UX, Monteur Vidéo & Développeur Laravel',
+    positionEn: 'UI/UX Designer, Video Editor & Laravel Developer',
+    url: 'https://www.behance.net/fernandohoussou',
+    startDate: '2020-01-01',
+    summaryFr: `Prestations de services numériques en freelance. Clients physiques et clients internationaux en ligne via Upwork, ComeUp et Fiverr, en complément de missions réalisées directement avec des entreprises et entrepreneurs locaux (branding, montage vidéo, développement PHP/Laravel).`,
+    summaryEn: `Freelance digital services. Physical clients and international online clients via Upwork, ComeUp, and Fiverr, in addition to direct contracts with local businesses and entrepreneurs (branding, video editing, PHP/Laravel development).`,
+    highlightsFr: [
+      "Création de chartes graphiques et d'interfaces pour des startups et PME d'Afrique de l'Ouest.",
+      "Production de vidéos publicitaires dynamiques pour réseaux sociaux avec Premiere Pro, After Effects et Blender.",
+      "Développement de fonctionnalités web sur-mesure (modules, intégrations d'API)."
     ],
-  },
-  {
-    name: 'Planetary Resources',
-    position: 'Avionics Intern',
-    url: 'https://www.planetaryresources.com',
-    startDate: '2014-01-01',
-    endDate: '2014-05-01',
-    highlights: [
-      'Developed simulations for Attitude Determination and Control Subsystem.',
-      'Built flight hardware for Electrical Power Subsystem in clean room; performed thermal vacuum chamber testing.',
-    ],
-  },
-  {
-    name: 'Facebook',
-    position: 'Software Engineering Intern',
-    url: 'https://facebook.com',
-    startDate: '2013-06-01',
-    endDate: '2013-09-01',
-    highlights: [
-      "Worked on Facebook's first GPU compute team, benchmarking NVIDIA GPUs for initial data center deployment.",
-      'Built log collection software and performed statistical analysis in Python, Hack, R, and HQL.',
-    ],
-  },
-  {
-    name: 'UB Nanosatellite Program',
-    position: 'Program Manager',
-    url: 'https://ubnl.space/',
-    startDate: '2011-06-01',
-    endDate: '2012-05-01',
-    summary:
-      'Led a 60-person student team through the satellite development lifecycle for the AFRL University Nanosatellite Program.',
-    highlights: [
-      'Co-authored grant proposal to design and build a multi-spectral imaging satellite.',
-      'Established budget and schedule from initial concept through design reviews.',
-      'Designed ADCS and worked on sensor integration.',
+    highlightsEn: [
+      "Creating brand guidelines and UI interfaces for West African startups and SMEs.",
+      "Producing dynamic social media ad videos using Premiere Pro, After Effects, and Blender.",
+      "Developing tailored web features (custom modules, API integrations)."
     ],
   },
 ];

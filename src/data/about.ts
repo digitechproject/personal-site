@@ -1,96 +1,72 @@
-export const aboutMarkdown = `# Intro
+export const aboutMarkdown = {
+  fr: `# Intro
 
-I build products, companies, and teams across AI, security, and infrastructure. Today, I am a Member of the Technical Staff at [OpenAI](https://openai.com), where I work on [Promptfoo](https://promptfoo.dev) and agent security.
+Je suis un entrepreneur béninois passionné par la technologie, le design, l'intelligence artificielle et la transformation numérique de l'Afrique. Mon parcours n'a pas été linéaire : j'ai appris par la pratique, les projets réels, les contraintes du terrain, les échecs et l'autodiscipline.
 
-Previously, I co-founded [Promptfoo](https://promptfoo.dev), [Arthena](https://arthena.com) (acquired by Masterworks), and [Matroid](https://matroid.com). I also led engineering at [Smile ID](https://usesmileid.com) and helped build satellites at [Planet](https://planet.com) and [Planetary Resources](https://en.wikipedia.org/wiki/Planetary_Resources).
+Depuis mes débuts dans le design graphique autour de 2013-2014 jusqu'à la gestion de projets numériques comme [LGA Bénin](#), [RestooGo](#), [itiket](#), FastNetLite et plusieurs solutions web, j'ai développé un profil hybride : à la fois créatif, technique, commercial et opérationnel.
 
-In my spare time, I enjoy investing in people and ideas through a [small venture fund](https://skepticalinvestments.biz), focusing on projects with high social impact. If you think I can be helpful to you or your cause, or if you're interested in collaborating, feel free to get in touch.
+Mon ambition est claire : contribuer à bâtir une Afrique plus autonome numériquement, capable de concevoir, vendre et faire évoluer ses propres plateformes et infrastructures digitales adaptées aux réalités locales.
 
-# Some History
+# Ma Vision
 
-- My parents put a computer in my bedroom in 1993 when I was 3. It was an old Tandy that ran MS-DOS. My favorite games were Street Rod 2, Wolfenstein 3D, and Tom and Jerry. It had a mechanical keyboard and a turbo button. To this day, I still don't know what pressing the turbo button really did.
-- We subscribed to AOL in 1995. I still remember installing it from a floppy disk onto our brand-new Packard Bell. It took years for me to send my first email.
-- In the summer of 1996, my uncle purchased [MegaRace](https://en.wikipedia.org/wiki/MegaRace) from [Media Play](https://en.wikipedia.org/wiki/Media_Play) and installed it on my mom's work computer. I might have endangered her business by using her computer too much.
-- At 7, I discovered the mini-games hidden in Microsoft Office. I also beat Minesweeper on expert for the first time.
-- At 8, my parents bought me a Sony Mavica MVC-FD71 digital camera after I stole their SLR one too many times. It could fit 10 images to a floppy disk at a 0.3MP resolution. I still have it, and it still works. I've been taking photographs ever since, now with a Nikon D750, D800, and occasionally with a Mamiya 6II.
-- At 10, I built my first website with Microsoft FrontPage on our Pentium III [Gateway](https://en.wikipedia.org/wiki/Gateway,_Inc.). My website was terrible.
-- I was 11 when I built my first [Tesla Coil](https://en.wikipedia.org/wiki/Tesla_coil) (without my parents' permission). Over the next few years, I built several more, including one of the first audio modulated coils and one of the first DRSSTCs.
-- When I was 12, I set the all-time high record at my local laser tag facility by reverse engineering the charging station and weapon protocols with a photo-resistor, micro-cassette recorder, and a lot of patience. I was unstoppable.
-- At 13, I went to space camp and fell in love. I went back two more times and promised myself that I'd work in space. I've since helped build three generations of satellites and have contributed to two more.
-- At 14, I was almost expelled for finding a backdoor into my high school's file server and telling everyone but the faculty members about it. Later that year, I figured out how to turn off the internet firewall by editing system registry keys. I anonymously shared my work months later.
-- At 16, I participated in a foreign exchange program in Dortmund, Germany. Since then, I've gone back almost every year.
-- 14 - 17, I played a lot of video games. My favorites included Counter-Strike Source, Command and Conquer 3, Halo 2, and Age of Empires II.
-- At 18, in the summer before college, my friends and I started playing [Muggle Quidditch](<https://en.wikipedia.org/wiki/Quidditch_(sport)>). We went on to start over 8 teams in the [International Quidditch Association](https://en.wikipedia.org/wiki/International_Quidditch_Association), including the [Buffalo Quidditch Society](https://www.facebook.com/buffaloquidditch/). At our height, we were ranked third in the IQA. Although I don't play anymore, you can still see pictures of me holding a broom while wearing a chess camp t-shirt on Facebook.
-- At 19, I took my first graduate course and published my first academic paper.
-- At 20, I co-authored a grant to build a satellite and managed a 60+ person team for the next two years. You can read more about [that project](https://ubnl.space/glados/).
+Je crois fermement que l'Afrique doit passer du statut de simple consommatrice de technologies à celui de conceptrice de ses propres solutions. Cette vision s'articule autour de trois piliers :
 
-Ask me in person for other stories that I'm afraid to share with the internet.
+- **Créer des produits utiles** : Des applications et outils qui répondent directement à des problèmes locaux concrets (commerce, restauration, connectivité, billetterie, gestion).
+- **Former des systèmes durables** : Bâtir des processus, des documentations et des équipes capables de fonctionner de manière structurée et autonome.
+- **Utiliser l'IA comme accélérateur** : L'intelligence artificielle est un levier majeur pour apprendre plus vite, prototyper rapidement, automatiser les tâches et réduire l'écart entre l'ambition et l'exécution.
 
-# I Like
+# Mon Histoire / Timeline
 
-- Running.
-- Skiing.
-- Sailing and the sea.
-- Space.
-- Summer.
-- [Books](https://www.goodreads.com/mdangelo).
-- Colored pencils ([Faber-Castell Polychromos](https://www.faber-castell.com/products/art-and-graphic/polychromos)).
-- Podcasts ([The Daily](https://www.nytimes.com/column/the-daily), [The Ezra Klein Show](https://www.nytimes.com/column/ezra-klein-podcast), [Planet Money](https://www.npr.org/sections/money/), [Dwarkesh Podcast](https://www.dwarkesh.com/about/), [The a16z Show](https://a16z.com/podcasts/a16z-podcast/), [The MAD Podcast with Matt Turck](https://firstmark.com/community/the-mad-podcast/), [Uncapped with Jack Altman](https://podcasts.apple.com/us/podcast/uncapped-with-jack-altman/id1801867202), [Darknet Diaries](https://darknetdiaries.com/), and others).
-- [Good design](/).
-- [Photography](https://instagram.com/dangelosaurus).
+- **2013-2015 — Débuts dans le design graphique** : Découverte de Photoshop, création visuelle autodidacte, passion pour le digital et les interfaces créatives.
+- **2018 — Baccalauréat Scientifique** : Obtention du BAC Série C (mathématiques et sciences physiques) après un parcours exigeant qui a forgé ma persévérance.
+- **2019-2020 — Études en finance & Déclic entrepreneurial** : Expérience universitaire en finance, marquée par des défis financiers et administratifs, ce qui m'a poussé à me former intensivement en autodidacte pour construire de la valeur par moi-même.
+- **2020 — Première marketplace : Market Bénin** : Conception d'un premier projet de marketplace locale pour sécuriser et fluidifier le commerce en ligne au Bénin.
+- **2021-2024 — LGA Bénin (Les Grandes Affaires)** : Implication clé dans cette marketplace béninoise. Supervision de la communication, de l'UX, recrutement et accompagnement des vendeurs, adaptation du produit aux réalités locales.
+- **2022-2024 — Montée en compétences techniques** : Apprentissage pratique du PHP/Laravel, administration système/réseau Linux, configuration MikroTik, VPN, intégration d'API et d'outils d'automatisation IA.
+- **2023-2025 — Freelancing & Projets Clients** : Conception d'interfaces (UI/UX), montage vidéo, création de scripts et voix off, développement Laravel et branding pour des PME locales.
+- **2025-2026 — Structuration de SOFITAR** : Lancement d'un écosystème de solutions digitales et de communication pour accompagner la professionnalisation des entreprises africaines.
 
-# Travel / Geography
+# J'aime / Centres d'intérêt
 
-- I am originally from Buffalo, New York. I have since lived in Palo Alto, Mountain View, San Francisco, Seattle, and New York City.
-- I've been to approximately 50 countries, some of which I have forgotten, many of which I would like to revisit.
-- In 2016, I visited Canada, Ethiopia, Austria, Germany, Belgium, Ireland, Northern Ireland, Italy, Romania, Sweden, Norway, Svalbard, Panama, Costa Rica, Uganda, Japan, and the UAE, mostly in that order.
-- In 2017, I visited Canada, Japan, Denmark, Germany, Sweden, Estonia, Russia, the Netherlands, Belgium, the UK, Spain, Iceland, France, Switzerland, Ethiopia, and Luxembourg.
-- In 2018, I visited Canada, France, Italy, Israel, and the UK.
-- In 2019, I visited Canada, the UK, France, and Switzerland.
-- In 2020, I traveled barely 20 blocks. I stayed in New York and remodeled an apartment.
-- In 2021, I continued remodeling an apartment.
-- In 2022, I switched jobs and visited the UK, France, Greece, Belgium, Luxembourg, Germany, and Kenya.
-- In 2023, I visited France, the UK, Ireland, and Rwanda.
-- I am an Oregon Trail II enthusiast.
+- **Le Design & Le Branding** : Rendre les idées visibles, esthétiques et efficaces.
+- **La Résolution de Problèmes (Problem Solving)** : Explorer le réseau, coder en Laravel, chercher des solutions MikroTik complexes.
+- **L'Apprentissage Continu** : Expérimenter les nouveaux outils IA pour optimiser la productivité.
+- **Le Terrain & Le Contact client** : Aller à la rencontre des marchands, comprendre les réalités opérationnelles.
+- **L'Afrique & Son Potentiel** : Contribuer activement à l'émergence d'infrastructures tech locales.
+`,
+  en: `# Intro
 
-# Fun Facts
+I am a Beninese entrepreneur passionate about technology, product design, artificial intelligence, and the digital transformation of Africa. My journey has not been linear: I learned through hands-on practice, real projects, field constraints, failures, and self-discipline.
 
-- I have a list of thousands of ideas, like creating matching bow ties for cats and humans.
-- I almost always have a sketchbook with me and a [01 Sakura Pigma Micron Pen](https://www.sakuraofamerica.com/product/pigma-micron/).
-- I can't locate every country on a map.
-- I operate a [small angel fund](http://skepticalinvestments.biz/) with terrible returns.
-- I break about 30 traffic laws on a skateboard or [bicycle](https://www.citibikenyc.com/) every single day.
-- I stack-rank coffee shops, restaurants, and every dog I see in New York.
-- I added this page because many people complained that my site was just my resume.
+From my beginnings in graphic design around 2013-2014 to managing digital projects like [LGA Bénin](#), [RestooGo](#), [itiket](#), FastNetLite, and several web solutions, I have developed a hybrid profile: creative, technical, commercial, and operational.
 
-# I Dream Of
+My ambition is clear: to help build a more digitally autonomous Africa, capable of designing, selling, and evolving its own digital platforms and infrastructures adapted to local realities.
 
-- Inspiring and feeling inspired.
-- Enabling a brighter future for everyone, regardless of political or socioeconomic status.
-- Treating every individual with genuine kindness and respect.
-- Staying curious.
-- Continually improving.
-- You not checking the commit history for earlier drafts of this file.
+# My Vision
 
-# Websites from People I Admire
+I firmly believe that Africa must shift from being a mere consumer of technology to a designer of its own solutions. This vision is built on three pillars:
 
-- [Alex Peysakhovich](http://alexpeys.github.io/)
-- [Chris Lengerich](http://www.chrislengerich.com/)
-- [Chris Saad](https://www.chrissaad.com/)
-- [Duncan Tomlin](http://duncantomlin.com/)
-- [Ed Kearney](https://edkearney.com/)
-- [Gia Jung](http://giajung.com/)
-- [Hawley Moore](http://hawleymoore.com/)
-- [Holman Gao](https://golmansax.com/)
-- [Ian Webster](http://ianww.com/)
-- [Johanna Flato](https://www.johannaflato.com/)
-- [Judy Mou](http://www.judymou.com/)
-- [Judy Suh](https://www.judysuh.com/)
-- [Kristina Monakhova](https://kristinamonakhova.com/)
-- [Noah Trueblood](http://notrueblood.com/)
-- [Ruoxi Wang](http://ruoxiw.com/)
-- [Tom Sachs](https://www.tomsachs.org/)
-- [Will Holley](https://willholley.com/)
+- **Create useful products**: Applications and tools that directly solve concrete local problems (commerce, catering, connectivity, ticketing, management).
+- **Form sustainable systems**: Build processes, documentations, and teams capable of running in a structured and autonomous way.
+- **Use AI as an accelerator**: Artificial intelligence is a major lever to learn faster, prototype rapidly, automate tasks, and narrow the gap between ambition and execution.
 
-If we are friends and you feel like you belong on this list, you're probably right. Submit a PR, or ask me, and I'll add you.
-`;
+# My Story / Timeline
+
+- **2013-2015 — Graphic Design Beginnings**: Self-taught discovery of Photoshop, visual creation, and passion for digital and creative interfaces.
+- **2018 — Scientific Baccalaureate**: Obtained the BAC C Series (Mathematics and Physical Sciences) after a demanding journey that forged my perseverance.
+- **2019-2020 — Finance Studies & Entrepreneurial Trigger**: University experience in finance, marked by financial and administrative challenges, which pushed me to train intensively as a self-taught builder of digital value.
+- **2020 — First Marketplace: Market Benin**: Conceived a local marketplace project to secure and fluidify online commerce in Benin.
+- **2021-2024 — LGA Bénin (Les Grandes Affaires)**: Key involvement in this Beninese marketplace. Supervised communication, UX, recruitment, and merchant support, adapting the product to local realities.
+- **2022-2024 — Technical Upskilling**: Hands-on learning of PHP/Laravel, Linux network/system administration, MikroTik setup, VPNs, API integration, and AI automation tools.
+- **2023-2025 — Freelancing & Client Projects**: Interface design (UI/UX), video editing, script & voiceover creation, Laravel development, and branding for local SMEs.
+- **2025-2026 — Structuring SOFITAR**: Launching a digital solutions and communication ecosystem to support the professionalization of African businesses.
+
+# Likes / Interests
+
+- **Design & Branding**: Making ideas visible, aesthetic, and effective.
+- **Problem Solving**: Exploring networks, coding in Laravel, and finding complex MikroTik solutions.
+- **Continuous Learning**: Experimenting with new AI tools to optimize productivity.
+- **Field & Customer Contact**: Meeting merchants, understanding operational realities.
+- **Africa & Its Potential**: Actively contributing to the emergence of local tech infrastructures.
+`
+};

@@ -2,37 +2,54 @@ export interface Route {
   label: string;
   path: string;
   index?: boolean;
+  menu?: 'main' | 'plus' | 'hidden';
 }
 
 const routes: Route[] = [
   {
     index: true,
-    label: "Michael D'Angelo",
+    label: 'Fernando HOUSSOU',
     path: '/',
   },
   {
     label: 'About',
     path: '/about',
+    menu: 'main',
   },
   {
     label: 'Resume',
     path: '/resume',
+    menu: 'main',
   },
   {
-    label: 'Writing',
-    path: '/writing',
-  },
-  {
-    label: 'Stats',
-    path: '/stats',
+    label: 'Projects',
+    path: '/projects',
+    menu: 'main',
   },
   {
     label: 'Contact',
     path: '/contact',
+    menu: 'main',
   },
   {
-    label: 'Archive',
-    path: '/projects',
+    label: 'Event',
+    path: '/event',
+    menu: 'plus',
+  },
+  {
+    label: 'Writing',
+    path: '/writing',
+    menu: 'plus',
+  },
+  {
+    label: 'Gallery',
+    path: '/gallery',
+    menu: 'plus',
+  },
+  {
+    label: 'Stats',
+    path: '/stats',
+    menu: 'hidden',
   },
 ];
 

@@ -22,6 +22,14 @@ describe('ContactIcons', () => {
       'href',
       expect.stringContaining('mailto:'),
     );
+
+    // Check if Upwork link is present
+    const upworkLink = screen.getByRole('link', { name: /upwork/i });
+    expect(upworkLink).toBeInTheDocument();
+    expect(upworkLink).toHaveAttribute(
+      'href',
+      expect.stringContaining('upwork.com'),
+    );
   });
 
   it('has correct number of contact links', () => {

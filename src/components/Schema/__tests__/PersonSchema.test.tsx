@@ -72,18 +72,29 @@ describe('PersonSchema', () => {
 
     expect(data.worksFor).toBeDefined();
     expect(data.worksFor['@type']).toBe('Organization');
-    expect(data.worksFor.name).toBe('OpenAI');
+    expect(data.worksFor.name).toBe('SOFITAR');
   });
 
-  it('uses current role as job title', () => {
-    const { container } = render(<PersonSchema />);
+  it('uses current role as job title in French by default', () => {
+    const { container } = render(<PersonSchema lang="fr" />);
 
     const script = container.querySelector(
       'script[type="application/ld+json"]',
     );
     const data = JSON.parse(script?.innerHTML || '{}');
 
-    expect(data.jobTitle).toBe('Member of the Technical Staff');
+    expect(data.jobTitle).toBe('Fondateur & Directeur');
+  });
+
+  it('uses current role as job title in English', () => {
+    const { container } = render(<PersonSchema lang="en" />);
+
+    const script = container.querySelector(
+      'script[type="application/ld+json"]',
+    );
+    const data = JSON.parse(script?.innerHTML || '{}');
+
+    expect(data.jobTitle).toBe('Founder & Director');
   });
 
   it('includes alumniOf schools', () => {

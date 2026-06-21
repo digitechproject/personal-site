@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { getTranslation, Language } from '@/data/translations';
 
 const sections = [
-  { name: 'Experience', id: 'experience' },
-  { name: 'Education', id: 'education' },
-  { name: 'Skills', id: 'skills' },
-  { name: 'Courses', id: 'courses' },
-  { name: 'References', id: 'references' },
+  { translationKey: 'resume.nav.experience', id: 'experience' },
+  { translationKey: 'resume.nav.education', id: 'education' },
+  { translationKey: 'resume.nav.skills', id: 'skills' },
+  { translationKey: 'resume.nav.courses', id: 'courses' },
+  { translationKey: 'resume.nav.references', id: 'references' },
 ] as const;
 
 type SectionId = (typeof sections)[number]['id'];
@@ -15,9 +16,14 @@ type SectionId = (typeof sections)[number]['id'];
 /** Offset from top of viewport for intersection detection (header height + nav) */
 const INTERSECTION_MARGIN = '-20% 0px -75% 0px';
 
-export default function ResumeNav() {
+interface ResumeNavProps {
+  lang: Language;
+}
+
+export default function ResumeNav({ lang }: ResumeNavProps) {
   const [activeSection, setActiveSection] = useState<SectionId>('experience');
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const t = getTranslation(lang);
 
   useEffect(() => {
     // Check if IntersectionObserver is available (not in test environment)
@@ -89,7 +95,7 @@ export default function ResumeNav() {
           className={`resume-nav-link ${activeSection === section.id ? 'active' : ''}`}
           aria-current={activeSection === section.id ? 'location' : undefined}
         >
-          {section.name}
+          {t[section.translationKey as keyof ReturnType<typeof getTranslation>] || section.id}
         </a>
       ))}
     </nav>

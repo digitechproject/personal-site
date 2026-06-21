@@ -1,19 +1,14 @@
-import type { Metadata } from 'next';
+'use client';
 
-import { PersonSchema } from '@/components/Schema';
-import Hero from '@/components/Template/Hero';
-import PageWrapper from '@/components/Template/PageWrapper';
+import { useEffect } from 'react';
 
-export const metadata: Metadata = {
-  description:
-    'Member of the Technical Staff at OpenAI, working on Promptfoo and agent security. Previously co-founded Promptfoo, Arthena, and Matroid, and led engineering at Smile ID.',
-};
+export default function RootPage() {
+  useEffect(() => {
+    // Detect preferred browser language (defaulting to French)
+    const userLang = navigator.language || (navigator as any).userLanguage || 'fr';
+    const lang = userLang.startsWith('en') ? 'en' : 'fr';
+    window.location.replace(`/${lang}/`);
+  }, []);
 
-export default function HomePage() {
-  return (
-    <PageWrapper>
-      <PersonSchema />
-      <Hero />
-    </PageWrapper>
-  );
+  return null;
 }

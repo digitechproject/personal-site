@@ -13,12 +13,14 @@ describe('projects data', () => {
       expect(project).toHaveProperty('title');
       expect(project).toHaveProperty('image');
       expect(project).toHaveProperty('date');
-      expect(project).toHaveProperty('desc');
+      expect(project).toHaveProperty('descFr');
+      expect(project).toHaveProperty('descEn');
 
       expect(typeof project.title).toBe('string');
       expect(typeof project.image).toBe('string');
       expect(typeof project.date).toBe('string');
-      expect(typeof project.desc).toBe('string');
+      expect(typeof project.descFr).toBe('string');
+      expect(typeof project.descEn).toBe('string');
     }
   });
 
@@ -30,7 +32,8 @@ describe('projects data', () => {
 
   it('project descriptions are non-empty', () => {
     for (const project of projects) {
-      expect(project.desc.trim().length).toBeGreaterThan(0);
+      expect(project.descFr.trim().length).toBeGreaterThan(0);
+      expect(project.descEn.trim().length).toBeGreaterThan(0);
     }
   });
 

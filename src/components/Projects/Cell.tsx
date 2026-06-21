@@ -3,14 +3,29 @@ import Image from 'next/image';
 
 import type { Project } from '@/data/projects';
 import { PROJECT_IMAGE } from '@/lib/utils';
+import { Language } from '@/data/translations';
 
 interface CellProps {
   data: Project;
+  lang?: Language;
 }
 
-export default function Cell({ data }: CellProps) {
-  const { title, subtitle, link, image, date, desc, tech, featured } = data;
+export default function Cell({ data, lang = 'fr' }: CellProps) {
+  const {
+    title,
+    subtitleFr,
+    subtitleEn,
+    link,
+    image,
+    date,
+    descFr,
+    descEn,
+    tech,
+    featured,
+  } = data;
 
+  const subtitle = lang === 'en' ? subtitleEn : subtitleFr;
+  const desc = lang === 'en' ? descEn : descFr;
   const hasLink = Boolean(link);
 
   const cardContent = (

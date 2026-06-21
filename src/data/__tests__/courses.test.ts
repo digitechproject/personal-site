@@ -10,12 +10,14 @@ describe('courses data', () => {
 
   it('each course has required properties', () => {
     for (const course of courses) {
-      expect(course).toHaveProperty('title');
+      expect(course).toHaveProperty('titleFr');
+      expect(course).toHaveProperty('titleEn');
       expect(course).toHaveProperty('number');
       expect(course).toHaveProperty('link');
       expect(course).toHaveProperty('university');
 
-      expect(typeof course.title).toBe('string');
+      expect(typeof course.titleFr).toBe('string');
+      expect(typeof course.titleEn).toBe('string');
       expect(typeof course.number).toBe('string');
       expect(typeof course.link).toBe('string');
       expect(typeof course.university).toBe('string');
@@ -30,7 +32,8 @@ describe('courses data', () => {
 
   it('course titles are non-empty', () => {
     for (const course of courses) {
-      expect(course.title.trim().length).toBeGreaterThan(0);
+      expect(course.titleFr.trim().length).toBeGreaterThan(0);
+      expect(course.titleEn.trim().length).toBeGreaterThan(0);
     }
   });
 
@@ -43,7 +46,7 @@ describe('courses data', () => {
   });
 
   it('has unique course titles', () => {
-    const titles = courses.map((c) => c.title);
+    const titles = courses.map((c) => c.titleFr);
     const uniqueTitles = new Set(titles);
 
     expect(uniqueTitles.size).toBe(titles.length);

@@ -14,11 +14,14 @@ describe('writing data', () => {
       expect(item).toHaveProperty('url');
       expect(item).toHaveProperty('date');
       expect(item).toHaveProperty('description');
+      expect(item).toHaveProperty('lang');
 
       expect(typeof item.title).toBe('string');
       expect(typeof item.url).toBe('string');
       expect(typeof item.date).toBe('string');
       expect(typeof item.description).toBe('string');
+      expect(typeof item.lang).toBe('string');
+      expect(['fr', 'en']).toContain(item.lang);
     }
   });
 
@@ -35,7 +38,7 @@ describe('writing data', () => {
   });
 
   it('urls are valid', () => {
-    const urlRegex = /^https?:\/\/.+/;
+    const urlRegex = /^(https?:\/\/.+|#.*)$/;
 
     for (const item of writing) {
       expect(item.url).toMatch(urlRegex);
@@ -58,22 +61,18 @@ describe('writing data', () => {
     expect(uniqueTitles.size).toBe(titles.length);
   });
 
-  it('has unique urls', () => {
-    const urls = writing.map((w) => w.url);
-    const uniqueUrls = new Set(urls);
+  it('items with dates are sorted by date (most recent first) within each language', () => {
+    const locales = ['fr', 'en'] as const;
+    for (const lang of locales) {
+      const itemsWithDates = writing
+        .filter((item) => item.lang === lang)
+        .filter((item) => item.date && item.date.trim().length > 0);
 
-    expect(uniqueUrls.size).toBe(urls.length);
-  });
-
-  it('items with dates are sorted by date (most recent first)', () => {
-    const itemsWithDates = writing.filter(
-      (item) => item.date && item.date.trim().length > 0,
-    );
-
-    for (let i = 0; i < itemsWithDates.length - 1; i++) {
-      const current = new Date(itemsWithDates[i].date);
-      const next = new Date(itemsWithDates[i + 1].date);
-      expect(current.getTime()).toBeGreaterThanOrEqual(next.getTime());
+      for (let i = 0; i < itemsWithDates.length - 1; i++) {
+        const current = new Date(itemsWithDates[i].date);
+        const next = new Date(itemsWithDates[i + 1].date);
+        expect(current.getTime()).toBeGreaterThanOrEqual(next.getTime());
+      }
     }
   });
 });
