@@ -25,4 +25,3 @@ describe('writing post metadata', () => {
     );
   });
 });
-

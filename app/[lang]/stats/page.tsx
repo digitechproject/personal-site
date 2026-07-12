@@ -10,7 +10,9 @@ interface StatsPageProps {
   params: Promise<{ lang: string }> | any;
 }
 
-export async function generateMetadata({ params }: StatsPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: StatsPageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang === 'en' ? 'en' : 'fr';
 

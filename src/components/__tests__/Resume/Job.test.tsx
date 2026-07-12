@@ -84,7 +84,9 @@ describe('Job', () => {
   it('renders highlights in French', () => {
     render(<Job data={mockJob} lang="fr" />);
     expect(screen.getByText('Module X livré')).toBeInTheDocument();
-    expect(screen.getByText('Performance améliorée de 50%')).toBeInTheDocument();
+    expect(
+      screen.getByText('Performance améliorée de 50%'),
+    ).toBeInTheDocument();
   });
 
   it('handles missing summary gracefully', () => {

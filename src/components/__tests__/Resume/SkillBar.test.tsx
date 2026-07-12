@@ -10,7 +10,12 @@ const mockCategories = [
 
 describe('SkillBar', () => {
   it('renders the skill title in French by default', () => {
-    const skill = { titleFr: 'Python_FR', titleEn: 'Python_EN', competency: 5, category: ['Languages'] };
+    const skill = {
+      titleFr: 'Python_FR',
+      titleEn: 'Python_EN',
+      competency: 5,
+      category: ['Languages'],
+    };
 
     render(<SkillBar data={skill} categories={mockCategories} />);
 
@@ -18,7 +23,12 @@ describe('SkillBar', () => {
   });
 
   it('renders the skill title in English', () => {
-    const skill = { titleFr: 'Python_FR', titleEn: 'Python_EN', competency: 5, category: ['Languages'] };
+    const skill = {
+      titleFr: 'Python_FR',
+      titleEn: 'Python_EN',
+      competency: 5,
+      category: ['Languages'],
+    };
 
     render(<SkillBar data={skill} categories={mockCategories} lang="en" />);
 
@@ -26,7 +36,12 @@ describe('SkillBar', () => {
   });
 
   it('displays competency as fraction', () => {
-    const skill = { titleFr: 'Python', titleEn: 'Python', competency: 4, category: ['Languages'] };
+    const skill = {
+      titleFr: 'Python',
+      titleEn: 'Python',
+      competency: 4,
+      category: ['Languages'],
+    };
 
     render(<SkillBar data={skill} categories={mockCategories} />);
 
@@ -34,7 +49,12 @@ describe('SkillBar', () => {
   });
 
   it('calculates bar width based on competency (5 = 100%)', () => {
-    const skill = { titleFr: 'Python', titleEn: 'Python', competency: 5, category: ['Languages'] };
+    const skill = {
+      titleFr: 'Python',
+      titleEn: 'Python',
+      competency: 5,
+      category: ['Languages'],
+    };
 
     render(<SkillBar data={skill} categories={mockCategories} />);
 
@@ -57,7 +77,12 @@ describe('SkillBar', () => {
   });
 
   it('calculates bar width based on competency (3 = 60%)', () => {
-    const skill = { titleFr: 'Ruby', titleEn: 'Ruby', competency: 3, category: ['Languages'] };
+    const skill = {
+      titleFr: 'Ruby',
+      titleEn: 'Ruby',
+      competency: 3,
+      category: ['Languages'],
+    };
 
     render(<SkillBar data={skill} categories={mockCategories} />);
 
@@ -66,7 +91,12 @@ describe('SkillBar', () => {
   });
 
   it('applies category color via CSS custom property', () => {
-    const skill = { titleFr: 'Python', titleEn: 'Python', competency: 5, category: ['Languages'] };
+    const skill = {
+      titleFr: 'Python',
+      titleEn: 'Python',
+      competency: 5,
+      category: ['Languages'],
+    };
 
     render(<SkillBar data={skill} categories={mockCategories} />);
 
@@ -90,4 +120,3 @@ describe('SkillBar', () => {
     expect(bar.style.width).toBe('100%');
   });
 });
-

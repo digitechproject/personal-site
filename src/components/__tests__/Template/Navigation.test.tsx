@@ -53,7 +53,9 @@ describe('Navigation', () => {
     expect(screen.getByRole('link', { name: /projets/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /articles/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /événement/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: /événement/i }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /galerie/i })).toBeInTheDocument();
   });
 

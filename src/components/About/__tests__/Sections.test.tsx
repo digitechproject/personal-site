@@ -136,7 +136,9 @@ Lead paragraph.
       'Mon Histoire / Timeline',
     );
 
-    const heading = screen.getByRole('heading', { name: "J'aime / Centres d'intérêt" });
+    const heading = screen.getByRole('heading', {
+      name: "J'aime / Centres d'intérêt",
+    });
     const permalink = within(heading).getByRole('link', {
       name: "J'aime / Centres d'intérêt",
     });

@@ -24,7 +24,7 @@ describe('Footer', () => {
   it('displays the name and role in French by default', () => {
     render(<Footer />);
 
-    expect(screen.getByText("Fernando HOUSSOU")).toBeInTheDocument();
+    expect(screen.getByText('Fernando HOUSSOU')).toBeInTheDocument();
     expect(
       screen.getByText('Fondateur & Directeur at SOFITAR'),
     ).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe('Footer', () => {
     mockPathname.mockReturnValue('/en/');
     render(<Footer />);
 
-    expect(screen.getByText("Fernando HOUSSOU")).toBeInTheDocument();
+    expect(screen.getByText('Fernando HOUSSOU')).toBeInTheDocument();
     expect(
       screen.getByText('Founder & Director at SOFITAR'),
     ).toBeInTheDocument();
@@ -108,4 +108,3 @@ describe('Footer', () => {
     expect(avatarLink).toHaveAttribute('href', '/fr');
   });
 });
-

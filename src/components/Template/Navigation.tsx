@@ -14,7 +14,8 @@ export default function Navigation() {
   const pathname = usePathname();
 
   // Extract the active language from the pathname (defaulting to 'fr')
-  const lang: Language = pathname?.startsWith('/en/') || pathname === '/en' ? 'en' : 'fr';
+  const lang: Language =
+    pathname?.startsWith('/en/') || pathname === '/en' ? 'en' : 'fr';
   const t = getTranslation(lang);
 
   const getLocalizedPath = (path: string) => {
@@ -26,18 +27,23 @@ export default function Navigation() {
     const localizedPath = getLocalizedPath(path);
     const cleanPathname = pathname?.replace(/\/$/, '') || '';
     const cleanLocalized = localizedPath.replace(/\/$/, '');
-    
+
     if (path === '/') {
       return cleanPathname === cleanLocalized;
     }
-    return cleanPathname === cleanLocalized || cleanPathname.startsWith(cleanLocalized + '/');
+    return (
+      cleanPathname === cleanLocalized ||
+      cleanPathname.startsWith(cleanLocalized + '/')
+    );
   };
 
   const mainRoutes = routes.filter((l) => l.menu === 'main');
   const plusRoutes = routes.filter((l) => l.menu === 'plus');
 
   const getRouteLabel = (label: string) => {
-    const key = `nav.${label.toLowerCase()}` as keyof ReturnType<typeof getTranslation>;
+    const key = `nav.${label.toLowerCase()}` as keyof ReturnType<
+      typeof getTranslation
+    >;
     return t[key] || label;
   };
 

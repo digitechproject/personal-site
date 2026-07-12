@@ -10,7 +10,11 @@ interface SkillBarProps {
   lang?: Language;
 }
 
-export default function SkillBar({ data, categories, lang = 'fr' }: SkillBarProps) {
+export default function SkillBar({
+  data,
+  categories,
+  lang = 'fr',
+}: SkillBarProps) {
   const { category, competency, titleFr, titleEn } = data;
 
   const title = lang === 'en' ? titleEn : titleFr;

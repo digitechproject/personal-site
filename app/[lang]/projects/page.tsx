@@ -9,7 +9,9 @@ interface ProjectsPageProps {
   params: Promise<{ lang: string }> | any;
 }
 
-export async function generateMetadata({ params }: ProjectsPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ProjectsPageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang === 'en' ? 'en' : 'fr';
 
@@ -33,9 +35,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
       <section className="projects-page">
         <header className="projects-header">
           <h1 className="page-title">{t['projects.title']}</h1>
-          <p className="page-subtitle">
-            {t['projects.subtitle']}
-          </p>
+          <p className="page-subtitle">{t['projects.subtitle']}</p>
         </header>
 
         <ProjectsClient lang={lang} />

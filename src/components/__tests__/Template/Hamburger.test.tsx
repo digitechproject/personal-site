@@ -81,7 +81,9 @@ describe('Hamburger', () => {
     expect(screen.getByRole('link', { name: /cv/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /projets/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /événement/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: /événement/i }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /galerie/i })).toBeInTheDocument();
   });
 
@@ -117,4 +119,3 @@ describe('Hamburger', () => {
     expect(button).toHaveAttribute('aria-expanded', 'false');
   });
 });
-

@@ -15,13 +15,21 @@ export default function GalleryClient({ lang }: GalleryClientProps) {
 
   const categories = [
     { key: 'all', labelFr: 'Tout', labelEn: 'All' },
-    { key: 'wordpress', labelFr: 'WordPress (DMA)', labelEn: 'WordPress (DMA)' },
-    { key: 'video', labelFr: 'Montage Vidéo (DMA)', labelEn: 'Video Editing (DMA)' },
+    {
+      key: 'wordpress',
+      labelFr: 'WordPress (DMA)',
+      labelEn: 'WordPress (DMA)',
+    },
+    {
+      key: 'video',
+      labelFr: 'Montage Vidéo (DMA)',
+      labelEn: 'Video Editing (DMA)',
+    },
     { key: 'event', labelFr: 'Événements', labelEn: 'Events' },
   ];
 
   const filteredData = galleryData.filter(
-    (item) => activeCategory === 'all' || item.category === activeCategory
+    (item) => activeCategory === 'all' || item.category === activeCategory,
   );
 
   const openLightbox = (item: GalleryItem) => {
@@ -34,7 +42,9 @@ export default function GalleryClient({ lang }: GalleryClientProps) {
 
   const navigateLightbox = (direction: 'next' | 'prev') => {
     if (!selectedImage) return;
-    const currentIndex = filteredData.findIndex((item) => item.id === selectedImage.id);
+    const currentIndex = filteredData.findIndex(
+      (item) => item.id === selectedImage.id,
+    );
     let newIndex = currentIndex;
 
     if (direction === 'next') {
@@ -109,10 +119,14 @@ export default function GalleryClient({ lang }: GalleryClientProps) {
       {/* Lightbox Visionneuse */}
       {selectedImage && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
-          <button type="button" className="lightbox-close" onClick={closeLightbox}>
+          <button
+            type="button"
+            className="lightbox-close"
+            onClick={closeLightbox}
+          >
             ×
           </button>
-          
+
           <button
             type="button"
             className="lightbox-nav lightbox-prev"
@@ -124,17 +138,28 @@ export default function GalleryClient({ lang }: GalleryClientProps) {
             ‹
           </button>
 
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image
               src={selectedImage.image}
-              alt={lang === 'en' ? selectedImage.titleEn : selectedImage.titleFr}
+              alt={
+                lang === 'en' ? selectedImage.titleEn : selectedImage.titleFr
+              }
               width={800}
               height={600}
               className="lightbox-image"
             />
             <div className="lightbox-caption">
-              <h3>{lang === 'en' ? selectedImage.titleEn : selectedImage.titleFr}</h3>
-              <p>{lang === 'en' ? selectedImage.descriptionEn : selectedImage.descriptionFr}</p>
+              <h3>
+                {lang === 'en' ? selectedImage.titleEn : selectedImage.titleFr}
+              </h3>
+              <p>
+                {lang === 'en'
+                  ? selectedImage.descriptionEn
+                  : selectedImage.descriptionFr}
+              </p>
             </div>
           </div>
 

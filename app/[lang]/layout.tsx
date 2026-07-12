@@ -93,11 +93,7 @@ export default async function RootLayout({
   const lang = resolvedParams?.lang === 'en' ? 'en' : 'fr';
 
   return (
-    <html
-      lang={lang}
-      className={outfit.variable}
-      suppressHydrationWarning
-    >
+    <html lang={lang} className={outfit.variable} suppressHydrationWarning>
       <head>
         {/* CSP-safe theme initialization - prevents flash on load */}
         <Script id="theme-init" strategy="beforeInteractive">

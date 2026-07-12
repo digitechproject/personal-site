@@ -6,16 +6,12 @@ import References from '../../Resume/References';
 describe('References', () => {
   it('renders the references section in English', () => {
     render(<References lang="en" />);
-    expect(
-      screen.getByText(/References are available/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/References are available/i)).toBeInTheDocument();
   });
 
   it('renders the references section in French', () => {
     render(<References lang="fr" />);
-    expect(
-      screen.getByText(/Références disponibles/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Références disponibles/i)).toBeInTheDocument();
   });
 
   it('has a link to the contact page in English', () => {
@@ -44,9 +40,10 @@ describe('References', () => {
   it('displays as minimal inline text', () => {
     render(<References lang="en" />);
 
-    const paragraph = screen.getByText(/References are available/i).closest('p');
+    const paragraph = screen
+      .getByText(/References are available/i)
+      .closest('p');
     expect(paragraph).toBeInTheDocument();
     expect(paragraph?.tagName).toBe('P');
   });
 });
-

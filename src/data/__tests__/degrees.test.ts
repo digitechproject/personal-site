@@ -28,9 +28,10 @@ describe('degrees data', () => {
     const currentYear = new Date().getFullYear();
 
     for (const degree of degrees) {
-      const yearNum = typeof degree.year === 'number' 
-        ? degree.year 
-        : parseInt(degree.year.split('-').pop()?.trim() || '0', 10);
+      const yearNum =
+        typeof degree.year === 'number'
+          ? degree.year
+          : parseInt(degree.year.split('-').pop()?.trim() || '0', 10);
       expect(yearNum).toBeGreaterThanOrEqual(1950);
       expect(yearNum).toBeLessThanOrEqual(currentYear + 10);
     }
@@ -46,12 +47,20 @@ describe('degrees data', () => {
 
   it('degrees are ordered by year (most recent first)', () => {
     for (let i = 0; i < degrees.length - 1; i++) {
-      const yearI = typeof degrees[i].year === 'number' 
-        ? (degrees[i].year as number) 
-        : parseInt(degrees[i].year.toString().split('-').pop()?.trim() || '0', 10);
-      const yearI1 = typeof degrees[i + 1].year === 'number' 
-        ? (degrees[i + 1].year as number) 
-        : parseInt(degrees[i + 1].year.toString().split('-').pop()?.trim() || '0', 10);
+      const yearI =
+        typeof degrees[i].year === 'number'
+          ? (degrees[i].year as number)
+          : parseInt(
+              degrees[i].year.toString().split('-').pop()?.trim() || '0',
+              10,
+            );
+      const yearI1 =
+        typeof degrees[i + 1].year === 'number'
+          ? (degrees[i + 1].year as number)
+          : parseInt(
+              degrees[i + 1].year.toString().split('-').pop()?.trim() || '0',
+              10,
+            );
       expect(yearI).toBeGreaterThanOrEqual(yearI1);
     }
   });

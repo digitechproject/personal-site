@@ -60,7 +60,8 @@ export default function ProjectsClient({ lang }: ProjectsClientProps) {
               className={`projects-category-btn ${activeCategory === cat.key ? 'active' : ''}`}
               onClick={() => setActiveCategory(cat.key)}
             >
-              {t[cat.labelKey as keyof ReturnType<typeof getTranslation>] || cat.key}
+              {t[cat.labelKey as keyof ReturnType<typeof getTranslation>] ||
+                cat.key}
             </button>
           ))}
         </div>
@@ -79,7 +80,9 @@ export default function ProjectsClient({ lang }: ProjectsClientProps) {
         <>
           {featuredProjects.length > 0 && (
             <section className="projects-featured">
-              <h2 className="projects-section-title">{t['projects.featured']}</h2>
+              <h2 className="projects-section-title">
+                {t['projects.featured']}
+              </h2>
               <div className="projects-grid projects-grid--featured">
                 {featuredProjects.map((project) => (
                   <Cell data={project} key={project.title} lang={lang} />

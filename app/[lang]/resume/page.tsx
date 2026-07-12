@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
 import Courses from '@/components/Resume/Courses';
+import DownloadButton from '@/components/Resume/DownloadButton';
 import Education from '@/components/Resume/Education';
 import Experience from '@/components/Resume/Experience';
+import PrintHeader from '@/components/Resume/PrintHeader';
 import References from '@/components/Resume/References';
 import ResumeNav from '@/components/Resume/ResumeNav';
 import Skills from '@/components/Resume/Skills';
@@ -11,14 +13,17 @@ import courses from '@/data/resume/courses';
 import degrees from '@/data/resume/degrees';
 import { categories, skills } from '@/data/resume/skills';
 import work from '@/data/resume/work';
-import { createPageMetadata } from '@/lib/metadata';
 import { getTranslation, Language } from '@/data/translations';
+import { createPageMetadata } from '@/lib/metadata';
 
 interface ResumePageProps {
+  // biome-ignore lint/suspicious/noExplicitAny: Next.js page params type
   params: Promise<{ lang: string }> | any;
 }
 
-export async function generateMetadata({ params }: ResumePageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ResumePageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang === 'en' ? 'en' : 'fr';
 
@@ -40,11 +45,14 @@ export default async function ResumePage({ params }: ResumePageProps) {
   return (
     <PageWrapper>
       <section className="resume-page">
+        <PrintHeader lang={lang} />
+
         <header className="resume-header">
           <h1 className="resume-title">{t['resume.title']}</h1>
-          <p className="resume-summary">
-            {t['resume.summary']}
-          </p>
+          <p className="resume-summary">{t['resume.summary']}</p>
+          <div className="resume-actions no-print">
+            <DownloadButton lang={lang} />
+          </div>
         </header>
 
         <ResumeNav lang={lang} />

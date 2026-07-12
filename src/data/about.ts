@@ -68,5 +68,5 @@ I firmly believe that Africa must shift from being a mere consumer of technology
 - **Continuous Learning**: Experimenting with new AI tools to optimize productivity.
 - **Field & Customer Contact**: Meeting merchants, understanding operational realities.
 - **Africa & Its Potential**: Actively contributing to the emergence of local tech infrastructures.
-`
+`,
 };

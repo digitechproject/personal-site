@@ -88,7 +88,8 @@ export default async function SiteStats({ lang }: SiteStatsProps) {
 
     const translationKey = getTranslationKey(field.label, field.key);
     const label =
-      t[translationKey as keyof ReturnType<typeof getTranslation>] || field.label;
+      t[translationKey as keyof ReturnType<typeof getTranslation>] ||
+      field.label;
 
     return {
       label,

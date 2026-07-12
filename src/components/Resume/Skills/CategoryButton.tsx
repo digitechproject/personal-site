@@ -16,7 +16,11 @@ export default function CategoryButton({
   const t = getTranslation(lang);
 
   const displayLabel =
-    t[`skill.category.${label.toLowerCase()}` as keyof ReturnType<typeof getTranslation>] || label;
+    t[
+      `skill.category.${label.toLowerCase()}` as keyof ReturnType<
+        typeof getTranslation
+      >
+    ] || label;
 
   return (
     <button

@@ -23,18 +23,26 @@ export default function Countdown({ lang }: CountdownProps) {
 
     const getNextSaturday18UTC = (): Date => {
       const now = new Date();
-      const target = new Date(Date.UTC(
-        now.getUTCFullYear(),
-        now.getUTCMonth(),
-        now.getUTCDate(),
-        18, 0, 0, 0 // 19h00 GMT+1 (heure du Bénin) corresponds to 18h00 UTC
-      ));
+      const target = new Date(
+        Date.UTC(
+          now.getUTCFullYear(),
+          now.getUTCMonth(),
+          now.getUTCDate(),
+          18,
+          0,
+          0,
+          0, // 19h00 GMT+1 (heure du Bénin) corresponds to 18h00 UTC
+        ),
+      );
 
       const day = now.getUTCDay();
       let daysToAdd = 6 - day;
-      
+
       // If today is Saturday and we have passed 18h00 UTC, or if it is Sunday (day = 0)
-      if (daysToAdd < 0 || (daysToAdd === 0 && now.getTime() >= target.getTime())) {
+      if (
+        daysToAdd < 0 ||
+        (daysToAdd === 0 && now.getTime() >= target.getTime())
+      ) {
         daysToAdd += 7;
       }
 

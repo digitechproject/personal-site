@@ -95,7 +95,9 @@ export default function ResumeNav({ lang }: ResumeNavProps) {
           className={`resume-nav-link ${activeSection === section.id ? 'active' : ''}`}
           aria-current={activeSection === section.id ? 'location' : undefined}
         >
-          {t[section.translationKey as keyof ReturnType<typeof getTranslation>] || section.id}
+          {t[
+            section.translationKey as keyof ReturnType<typeof getTranslation>
+          ] || section.id}
         </a>
       ))}
     </nav>

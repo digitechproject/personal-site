@@ -12,7 +12,8 @@ import ThemePortrait from './ThemePortrait';
 
 export default function Footer() {
   const pathname = usePathname();
-  const lang: Language = pathname?.startsWith('/en/') || pathname === '/en' ? 'en' : 'fr';
+  const lang: Language =
+    pathname?.startsWith('/en/') || pathname === '/en' ? 'en' : 'fr';
   const t = getTranslation(lang);
 
   const position = lang === 'en' ? work[0].positionEn : work[0].positionFr;
@@ -24,7 +25,9 @@ export default function Footer() {
   };
 
   const getRouteLabel = (label: string) => {
-    const key = `nav.${label.toLowerCase()}` as keyof ReturnType<typeof getTranslation>;
+    const key = `nav.${label.toLowerCase()}` as keyof ReturnType<
+      typeof getTranslation
+    >;
     return t[key] || label;
   };
 
@@ -57,10 +60,18 @@ export default function Footer() {
               {lang === 'en' ? 'Explore' : 'Explorer'}
             </h4>
             <div className="footer-links-grid">
-              <Link href={getLocalizedPath('/about/')}>{getRouteLabel('About')}</Link>
-              <Link href={getLocalizedPath('/resume/')}>{getRouteLabel('Resume')}</Link>
-              <Link href={getLocalizedPath('/projects/')}>{getRouteLabel('Projects')}</Link>
-              <Link href={getLocalizedPath('/contact/')}>{getRouteLabel('Contact')}</Link>
+              <Link href={getLocalizedPath('/about/')}>
+                {getRouteLabel('About')}
+              </Link>
+              <Link href={getLocalizedPath('/resume/')}>
+                {getRouteLabel('Resume')}
+              </Link>
+              <Link href={getLocalizedPath('/projects/')}>
+                {getRouteLabel('Projects')}
+              </Link>
+              <Link href={getLocalizedPath('/contact/')}>
+                {getRouteLabel('Contact')}
+              </Link>
             </div>
           </nav>
 

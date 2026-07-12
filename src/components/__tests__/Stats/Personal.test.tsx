@@ -39,4 +39,3 @@ describe('Personal', () => {
     expect(screen.getByText('Cotonou, Bénin')).toBeInTheDocument();
   });
 });
-

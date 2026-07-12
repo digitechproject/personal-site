@@ -35,7 +35,9 @@ describe('page metadata', () => {
         `${metadata.title} | ${AUTHOR_NAME}`,
       );
       expect(metadata.twitter?.description).toBe(metadata.description);
-      expect(metadata.twitter?.title).toBe(`${metadata.title} | ${AUTHOR_NAME}`);
+      expect(metadata.twitter?.title).toBe(
+        `${metadata.title} | ${AUTHOR_NAME}`,
+      );
     }
   });
 
@@ -64,7 +66,9 @@ describe('page metadata', () => {
         `${metadata.title} | ${AUTHOR_NAME}`,
       );
       expect(metadata.twitter?.description).toBe(metadata.description);
-      expect(metadata.twitter?.title).toBe(`${metadata.title} | ${AUTHOR_NAME}`);
+      expect(metadata.twitter?.title).toBe(
+        `${metadata.title} | ${AUTHOR_NAME}`,
+      );
     }
   });
 
@@ -85,7 +89,9 @@ describe('page metadata', () => {
   });
 
   it('preserves the writing rss alternate', async () => {
-    const writingMetadata = await generateWritingMetadata({ params: { lang: 'en' } });
+    const writingMetadata = await generateWritingMetadata({
+      params: { lang: 'en' },
+    });
     expect(writingMetadata.alternates?.types?.['application/rss+xml']).toBe(
       '/feed.xml',
     );

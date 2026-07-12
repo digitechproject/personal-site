@@ -12,7 +12,12 @@ export default function Course({ data, lang = 'fr' }: CourseProps) {
 
   return (
     <li className="course-container">
-      <a href={data.link} target="_blank" rel="noopener noreferrer" className="course-link">
+      <a
+        href={data.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="course-link"
+      >
         <div className="course-header-row">
           <h4 className="course-number">{data.number}:</h4>
           <span className="course-university">{data.university}</span>
@@ -21,7 +26,9 @@ export default function Course({ data, lang = 'fr' }: CourseProps) {
         {details && details.length > 0 && (
           <ul className="course-details-list">
             {details.map((d, i) => (
-              <li key={i} className="course-detail-item">{d}</li>
+              <li key={i} className="course-detail-item">
+                {d}
+              </li>
             ))}
           </ul>
         )}

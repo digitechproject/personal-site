@@ -45,4 +45,3 @@ export default function PersonSchema({ lang = 'fr' }: PersonSchemaProps) {
 
   return <JsonLd data={personData} />;
 }
-

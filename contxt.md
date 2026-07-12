@@ -1,6 +1,6 @@
 Oui, c’est totalement possible — et même très stratégique pour ta candidature MEST AI. Ton site personnel ne doit pas être juste un “portfolio design”. Il doit devenir **ton dossier vivant** : parcours, vision, compétences, projets, preuves, CV, études de cas, contacts, liens sociaux, et surtout ton positionnement comme **entrepreneur tech africain autodidacte, orienté terrain, IA, produit et business**.
 
-J’ai aussi regardé tes liens actuels : ton portfolio Systeme.io te présente déjà comme entrepreneur polyvalent, DG de LGA Bénin, chef opérationnel à Digiola Com & Pub, CEO de RestooGo, avec des compétences en design, marketing, prospection, solutions numériques et automatisation IA. ([Fernando Houssou][1]) Ton Linktree centralise déjà Instagram, Facebook, LinkedIn, WhatsApp, Email, Behance et Dribbble. ([Linktree][2]) Ton Behance te positionne comme “Full stack Developper - Designer and SEO Specialist”, basé à Cotonou, disponible freelance/full-time, avec une présence depuis février 2020. ([Behance][3]) Et dans ton récit personnel, tu as déjà une matière très forte : design depuis 2013-2014, marketplace, LGA, FastNetLite, SSO, Laravel, IA, freelancing, communication, terrain, SOFITAR/SOFITARr, et vision d’autonomie numérique africaine. 
+J’ai aussi regardé tes liens actuels : ton portfolio Systeme.io te présente déjà comme entrepreneur polyvalent, DG de LGA Bénin, chef opérationnel à Digiola Com & Pub, CEO de RestooGo, avec des compétences en design, marketing, prospection, solutions numériques et automatisation IA. ([Fernando Houssou][1]) Ton Linktree centralise déjà Instagram, Facebook, LinkedIn, WhatsApp, Email, Behance et Dribbble. ([Linktree][2]) Ton Behance te positionne comme “Full stack Developper - Designer and SEO Specialist”, basé à Cotonou, disponible freelance/full-time, avec une présence depuis février 2020. ([Behance][3]) Et dans ton récit personnel, tu as déjà une matière très forte : design depuis 2013-2014, marketplace, LGA, FastNetLite, SSO, Laravel, IA, freelancing, communication, terrain, SOFITAR/SOFITARr, et vision d’autonomie numérique africaine.
 
 Voici la structure idéale du site.
 
@@ -380,7 +380,6 @@ Je suis à l’intersection de quatre mondes :
 **le business**, parce que je comprends la vente et le terrain ;
 **l’IA**, parce que je l’utilise comme accélérateur d’exécution.
 
-
 ---
 
 ## 11. Section preuves et documents
@@ -473,6 +472,6 @@ C’est plus fort que “Designer graphique & Web”. Ton ancien CV te présente
 
 La prochaine étape logique, c’est qu’on prenne **la première étude de cas : LGA Bénin**, et qu’on la rédige proprement en format professionnel.
 
-[1]: # "Fernando HOUSSOU"
-[2]: https://linktr.ee/fernandohoussoulink "fernandohoussoulink Official: Instagram, Facebook | Linktree"
-[3]: https://www.behance.net/fernandohoussou "Fernando Houssou - Full stack Developper - (Designer and SEO) Specialist in Cotonou, Benin :: Behance"
+[1]: # 'Fernando HOUSSOU'
+[2]: https://linktr.ee/fernandohoussoulink 'fernandohoussoulink Official: Instagram, Facebook | Linktree'
+[3]: https://www.behance.net/fernandohoussou 'Fernando Houssou - Full stack Developper - (Designer and SEO) Specialist in Cotonou, Benin :: Behance'

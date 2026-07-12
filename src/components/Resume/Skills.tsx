@@ -110,7 +110,11 @@ export default function Skills({ skills, categories, lang }: SkillsProps) {
 
   const getTranslatedCategoryName = (name: string) => {
     return (
-      t[`skill.category.${name.toLowerCase()}` as keyof ReturnType<typeof getTranslation>] || name
+      t[
+        `skill.category.${name.toLowerCase()}` as keyof ReturnType<
+          typeof getTranslation
+        >
+      ] || name
     );
   };
 

@@ -15,8 +15,16 @@ const courses: Course[] = [
     number: 'Laracasts Path',
     link: 'https://laracasts.com',
     university: 'Laracasts',
-    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
-    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
+    detailsFr: [
+      'Formation via YouTube',
+      'Autoformation',
+      'Mise en pratique sur projets réels',
+    ],
+    detailsEn: [
+      'Training via YouTube',
+      'Self-taught',
+      'Hands-on practice on real projects',
+    ],
   },
   {
     titleFr: 'Masterclass UI/UX Design & Prototypage',
@@ -24,8 +32,16 @@ const courses: Course[] = [
     number: 'Figma Path',
     link: 'https://www.interaction-design.org',
     university: 'Interaction Design Foundation',
-    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
-    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
+    detailsFr: [
+      'Formation via YouTube',
+      'Autoformation',
+      'Mise en pratique sur projets réels',
+    ],
+    detailsEn: [
+      'Training via YouTube',
+      'Self-taught',
+      'Hands-on practice on real projects',
+    ],
   },
   {
     titleFr: 'Stratégies SEO Avancées & Marketing Digital',
@@ -33,8 +49,16 @@ const courses: Course[] = [
     number: 'HubSpot SEO',
     link: 'https://academy.hubspot.com',
     university: 'HubSpot Academy',
-    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
-    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
+    detailsFr: [
+      'Formation via YouTube',
+      'Autoformation',
+      'Mise en pratique sur projets réels',
+    ],
+    detailsEn: [
+      'Training via YouTube',
+      'Self-taught',
+      'Hands-on practice on real projects',
+    ],
   },
   {
     titleFr: "Prompt Engineering & Intégrations d'IA",
@@ -42,8 +66,16 @@ const courses: Course[] = [
     number: 'DeepLearning AI',
     link: 'https://www.deeplearning.ai',
     university: 'DeepLearning.AI',
-    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
-    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
+    detailsFr: [
+      'Formation via YouTube',
+      'Autoformation',
+      'Mise en pratique sur projets réels',
+    ],
+    detailsEn: [
+      'Training via YouTube',
+      'Self-taught',
+      'Hands-on practice on real projects',
+    ],
   },
   {
     titleFr: 'Réseaux Informatiques & Administration Hotspot',
@@ -51,8 +83,16 @@ const courses: Course[] = [
     number: 'MikroTik MTCNA',
     link: 'https://mikrotik.com',
     university: 'MikroTik RouterOS',
-    detailsFr: ['Formation via YouTube', 'Autoformation', 'Mise en pratique sur projets réels'],
-    detailsEn: ['Training via YouTube', 'Self-taught', 'Hands-on practice on real projects']
+    detailsFr: [
+      'Formation via YouTube',
+      'Autoformation',
+      'Mise en pratique sur projets réels',
+    ],
+    detailsEn: [
+      'Training via YouTube',
+      'Self-taught',
+      'Hands-on practice on real projects',
+    ],
   },
   {
     titleFr: 'IBM Artificial Intelligence Fundamentals',
@@ -60,8 +100,12 @@ const courses: Course[] = [
     number: 'Cert. IBM',
     link: 'https://www.credly.com',
     university: 'IBM',
-    detailsFr: ['Certification officielle IBM sur les bases de l\'IA et du Machine Learning.'],
-    detailsEn: ['Official IBM certification on AI basics and Machine Learning.']
+    detailsFr: [
+      "Certification officielle IBM sur les bases de l'IA et du Machine Learning.",
+    ],
+    detailsEn: [
+      'Official IBM certification on AI basics and Machine Learning.',
+    ],
   },
   {
     titleFr: 'Google AI Essentials',
@@ -69,9 +113,13 @@ const courses: Course[] = [
     number: 'Cert. Google',
     link: 'https://grow.google',
     university: 'Google',
-    detailsFr: ['Certification officielle Google sur l\'utilisation de l\'IA générative au quotidien.'],
-    detailsEn: ['Official Google certification on everyday usage of generative AI.']
-  }
+    detailsFr: [
+      "Certification officielle Google sur l'utilisation de l'IA générative au quotidien.",
+    ],
+    detailsEn: [
+      'Official Google certification on everyday usage of generative AI.',
+    ],
+  },
 ];
 
 export default courses;

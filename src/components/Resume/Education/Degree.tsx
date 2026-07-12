@@ -15,8 +15,10 @@ export default function Degree({ data, lang = 'fr' }: DegreeProps) {
       <header>
         <h4 className="degree">{degree}</h4>
         <p className="school">
-          <a href={data.link} target="_blank" rel="noopener noreferrer">{data.school}</a>,{' '}
-          <time dateTime={String(data.year)}>{data.period || data.year}</time>
+          <a href={data.link} target="_blank" rel="noopener noreferrer">
+            {data.school}
+          </a>
+          , <time dateTime={String(data.year)}>{data.period || data.year}</time>
         </p>
       </header>
       {details && details.length > 0 && (

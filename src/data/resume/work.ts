@@ -29,12 +29,12 @@ const work: Position[] = [
     highlightsFr: [
       "Supervision de la vision globale de l'entreprise et coordination des équipes pluridisciplinaires.",
       "Développement de produits numériques internes et accompagnement technique/opérationnel d'entreprises locales.",
-      "Mise en place de systèmes d'automatisation basés sur l'intelligence artificielle pour optimiser les workflows."
+      "Mise en place de systèmes d'automatisation basés sur l'intelligence artificielle pour optimiser les workflows.",
     ],
     highlightsEn: [
       "Supervising the company's overall vision and coordinating multidisciplinary teams.",
-      "Developing internal digital products and providing technical/operational support to local businesses.",
-      "Implementing AI-based automation systems to optimize workflows."
+      'Developing internal digital products and providing technical/operational support to local businesses.',
+      'Implementing AI-based automation systems to optimize workflows.',
     ],
   },
   {
@@ -46,14 +46,14 @@ const work: Position[] = [
     summaryFr: `Animation de sessions de formation pratique destinées à des professionnels et étudiants pour maîtriser la création de sites web WordPress et le montage vidéo publicitaire professionnel.`,
     summaryEn: `Leading practical training sessions for professionals and students to master WordPress website creation and professional marketing video editing.`,
     highlightsFr: [
-      "Formation complète sur la création de sites web WordPress : prise en main de LocalWP, de l’interface d’administration et conception de pages modernes avec Elementor.",
-      "Formation pratique au montage vidéo publicitaire professionnel avec CapCut et Filmora, axée sur la création de contenus marketing à fort impact.",
-      "Accompagnement personnalisé et ateliers de mise en situation réelle pour les étudiants."
+      'Formation complète sur la création de sites web WordPress : prise en main de LocalWP, de l’interface d’administration et conception de pages modernes avec Elementor.',
+      'Formation pratique au montage vidéo publicitaire professionnel avec CapCut et Filmora, axée sur la création de contenus marketing à fort impact.',
+      'Accompagnement personnalisé et ateliers de mise en situation réelle pour les étudiants.',
     ],
     highlightsEn: [
-      "Comprehensive training on WordPress website creation: mastering LocalWP, administration interface, and modern page design with Elementor.",
-      "Hands-on training in professional marketing video editing with CapCut and Filmora, focused on high-impact promotional content.",
-      "Personalized coaching and real-world practical workshops for students."
+      'Comprehensive training on WordPress website creation: mastering LocalWP, administration interface, and modern page design with Elementor.',
+      'Hands-on training in professional marketing video editing with CapCut and Filmora, focused on high-impact promotional content.',
+      'Personalized coaching and real-world practical workshops for students.',
     ],
   },
   {
@@ -67,14 +67,14 @@ const work: Position[] = [
     highlightsFr: [
       "Conception et optimisation de l'UI/UX de la plateforme web et de l'architecture multi-portails (vendeurs, clients).",
       "Coordination d'une équipe opérationnelle sur le terrain pour le recrutement et l'accompagnement des marchands peu digitalisés.",
-      "Branding, design social media et élaboration de campagnes de communication locales pour renforcer la confiance.",
-      "Mise en place de solutions d'authentification centralisée (SSO) pour l'écosystème LGA."
+      'Branding, design social media et élaboration de campagnes de communication locales pour renforcer la confiance.',
+      "Mise en place de solutions d'authentification centralisée (SSO) pour l'écosystème LGA.",
     ],
     highlightsEn: [
-      "Designing and optimizing UI/UX for the web platform and the multi-portal architecture (merchants, customers).",
-      "Coordinating a field operations team to recruit and support under-digitalized merchants.",
-      "Branding, social media design, and executing local communication campaigns to foster trust.",
-      "Implementing Centralized Single Sign-On (SSO) authentication solutions for the LGA ecosystem."
+      'Designing and optimizing UI/UX for the web platform and the multi-portal architecture (merchants, customers).',
+      'Coordinating a field operations team to recruit and support under-digitalized merchants.',
+      'Branding, social media design, and executing local communication campaigns to foster trust.',
+      'Implementing Centralized Single Sign-On (SSO) authentication solutions for the LGA ecosystem.',
     ],
   },
   {
@@ -89,13 +89,13 @@ const work: Position[] = [
     facilitate QR code ordering, enhance the customer experience, and grow their online visibility.`,
     highlightsFr: [
       "Conception de l'architecture produit et du design des interfaces utilisateur (menus interactifs, prise de commande).",
-      "Développement de prototypes fonctionnels et validation terrain auprès de restaurants et lounges à Cotonou.",
-      "Stratégie de positionnement marketing et d'acquisition de restaurants partenaires."
+      'Développement de prototypes fonctionnels et validation terrain auprès de restaurants et lounges à Cotonou.',
+      "Stratégie de positionnement marketing et d'acquisition de restaurants partenaires.",
     ],
     highlightsEn: [
-      "Designing the product architecture and user interfaces (interactive menus, order capture).",
-      "Developing functional prototypes and conducting field validation with lounges and restaurants in Cotonou.",
-      "Creating marketing positioning and partnership acquisition strategies for restaurants."
+      'Designing the product architecture and user interfaces (interactive menus, order capture).',
+      'Developing functional prototypes and conducting field validation with lounges and restaurants in Cotonou.',
+      'Creating marketing positioning and partnership acquisition strategies for restaurants.',
     ],
   },
   {
@@ -110,12 +110,12 @@ const work: Position[] = [
     summaryEn: `Digiola is a communication and advertising agency. I managed client onboarding,
     digital communication campaign execution, and local field activities.`,
     highlightsFr: [
-      "Supervision opérationnelle des campagnes publicitaires et de la production de contenus digitaux.",
-      "Prospection commerciale, relations clients et gestion des prestations logistiques et techniques."
+      'Supervision opérationnelle des campagnes publicitaires et de la production de contenus digitaux.',
+      'Prospection commerciale, relations clients et gestion des prestations logistiques et techniques.',
     ],
     highlightsEn: [
-      "Operational supervision of advertising campaigns and digital content production.",
-      "Sales prospection, client relations, and logistics/technical delivery management."
+      'Operational supervision of advertising campaigns and digital content production.',
+      'Sales prospection, client relations, and logistics/technical delivery management.',
     ],
   },
   {
@@ -128,13 +128,13 @@ const work: Position[] = [
     summaryEn: `Freelance digital services. Physical clients and international online clients via Upwork, ComeUp, and Fiverr, in addition to direct contracts with local businesses and entrepreneurs (branding, video editing, PHP/Laravel development).`,
     highlightsFr: [
       "Création de chartes graphiques et d'interfaces pour des startups et PME d'Afrique de l'Ouest.",
-      "Production de vidéos publicitaires dynamiques pour réseaux sociaux avec Premiere Pro, After Effects et Blender.",
-      "Développement de fonctionnalités web sur-mesure (modules, intégrations d'API)."
+      'Production de vidéos publicitaires dynamiques pour réseaux sociaux avec Premiere Pro, After Effects et Blender.',
+      "Développement de fonctionnalités web sur-mesure (modules, intégrations d'API).",
     ],
     highlightsEn: [
-      "Creating brand guidelines and UI interfaces for West African startups and SMEs.",
-      "Producing dynamic social media ad videos using Premiere Pro, After Effects, and Blender.",
-      "Developing tailored web features (custom modules, API integrations)."
+      'Creating brand guidelines and UI interfaces for West African startups and SMEs.',
+      'Producing dynamic social media ad videos using Premiere Pro, After Effects, and Blender.',
+      'Developing tailored web features (custom modules, API integrations).',
     ],
   },
 ];

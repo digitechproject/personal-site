@@ -10,7 +10,11 @@ interface SkillTagProps {
   lang?: Language;
 }
 
-export default function SkillTag({ data, categories, lang = 'fr' }: SkillTagProps) {
+export default function SkillTag({
+  data,
+  categories,
+  lang = 'fr',
+}: SkillTagProps) {
   const { category, competency, titleFr, titleEn } = data;
 
   const title = lang === 'en' ? titleEn : titleFr;

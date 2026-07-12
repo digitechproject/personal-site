@@ -149,6 +149,7 @@
             background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
         }
     </style>
+
 </head>
 <body class="font-body-md text-body-md">
 <div class="nebula-bg"></div>
@@ -474,4 +475,5 @@
             });
         });
     </script>
+
 </body></html>

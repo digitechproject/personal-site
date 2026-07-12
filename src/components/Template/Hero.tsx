@@ -25,9 +25,7 @@ export default function Hero({ lang }: HeroProps) {
           <span className="hero-name">Fernando HOUSSOU</span>
         </h1>
 
-        <p className="hero-tagline">
-          {t['hero.tagline']}
-        </p>
+        <p className="hero-tagline">{t['hero.tagline']}</p>
 
         <div className="hero-chips">
           <span className="hero-chip">Entrepreneur Tech</span>
@@ -37,13 +35,22 @@ export default function Hero({ lang }: HeroProps) {
         </div>
 
         <div className="hero-cta">
-          <Link href={getLocalizedPath('/about/')} className="button button-primary">
+          <Link
+            href={getLocalizedPath('/about/')}
+            className="button button-primary"
+          >
             {t['hero.about']}
           </Link>
-          <Link href={getLocalizedPath('/resume/')} className="button button-secondary">
+          <Link
+            href={getLocalizedPath('/resume/')}
+            className="button button-secondary"
+          >
             {t['hero.resume']}
           </Link>
-          <Link href={getLocalizedPath('/event/')} className="button button-secondary">
+          <Link
+            href={getLocalizedPath('/event/')}
+            className="button button-secondary"
+          >
             {t['hero.event']}
           </Link>
         </div>

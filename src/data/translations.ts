@@ -11,7 +11,8 @@ export const translations = {
     'nav.gallery': 'Galerie',
 
     // Hero
-    'hero.tagline': 'Je construis des solutions numériques, des marques et des systèmes opérationnels adaptés aux réalités africaines — entre design, développement web, marketing digital, IA et stratégie entrepreneuriale.',
+    'hero.tagline':
+      'Je construis des solutions numériques, des marques et des systèmes opérationnels adaptés aux réalités africaines — entre design, développement web, marketing digital, IA et stratégie entrepreneuriale.',
     'hero.about': 'À mon sujet',
     'hero.resume': 'Voir mon CV',
     'hero.event': 'Événements',
@@ -24,7 +25,8 @@ export const translations = {
 
     // Resume
     'resume.title': 'CV / Parcours',
-    'resume.summary': 'Entrepreneur tech, designer graphique et web, spécialiste en marketing digital, développement de solutions numériques et stratégie opérationnelle. Plus de 10 ans d’expérience pratique dans la création visuelle, la communication digitale, le développement web, la gestion de projets, la prospection commerciale et la construction de produits numériques adaptés au marché africain.',
+    'resume.summary':
+      'Entrepreneur tech, designer graphique et web, spécialiste en marketing digital, développement de solutions numériques et stratégie opérationnelle. Plus de 10 ans d’expérience pratique dans la création visuelle, la communication digitale, le développement web, la gestion de projets, la prospection commerciale et la construction de produits numériques adaptés au marché africain.',
     'resume.nav.experience': 'Expérience',
     'resume.nav.education': 'Diplômes',
     'resume.nav.skills': 'Compétences',
@@ -32,6 +34,7 @@ export const translations = {
     'resume.nav.references': 'Références',
     'resume.references.title': 'Références',
     'resume.references.text': 'Références disponibles sur demande.',
+    'resume.download': 'Télécharger le CV (PDF)',
 
     // Skills categories
     'skill.category.all': 'Tout',
@@ -60,7 +63,8 @@ export const translations = {
 
     // Projects
     'projects.title': 'Projets',
-    'projects.subtitle': 'Découvrez les projets, plateformes et solutions numériques créés par Fernando HOUSSOU.',
+    'projects.subtitle':
+      'Découvrez les projets, plateformes et solutions numériques créés par Fernando HOUSSOU.',
     'projects.featured': 'Projets Vedettes',
     'projects.other': 'Autres Projets',
     'projects.category.all': 'Tous',
@@ -91,7 +95,8 @@ export const translations = {
     'nav.gallery': 'Gallery',
 
     // Hero
-    'hero.tagline': 'I build digital solutions, brands, and operational systems tailored to African realities — merging design, web development, digital marketing, AI, and entrepreneurial strategy.',
+    'hero.tagline':
+      'I build digital solutions, brands, and operational systems tailored to African realities — merging design, web development, digital marketing, AI, and entrepreneurial strategy.',
     'hero.about': 'About Me',
     'hero.resume': 'View Resume',
     'hero.event': 'Events',
@@ -104,7 +109,8 @@ export const translations = {
 
     // Resume
     'resume.title': 'Resume',
-    'resume.summary': 'Tech entrepreneur, graphic & web designer, digital marketing specialist, digital solutions builder, and operational strategist. Over 10 years of practical experience in visual creation, digital communication, web development, project management, sales prospection, and building digital products adapted to the African market.',
+    'resume.summary':
+      'Tech entrepreneur, graphic & web designer, digital marketing specialist, digital solutions builder, and operational strategist. Over 10 years of practical experience in visual creation, digital communication, web development, project management, sales prospection, and building digital products adapted to the African market.',
     'resume.nav.experience': 'Experience',
     'resume.nav.education': 'Education',
     'resume.nav.skills': 'Skills',
@@ -112,6 +118,7 @@ export const translations = {
     'resume.nav.references': 'References',
     'resume.references.title': 'References',
     'resume.references.text': 'References are available upon request.',
+    'resume.download': 'Download CV (PDF)',
 
     // Skills categories
     'skill.category.all': 'All',
@@ -130,7 +137,8 @@ export const translations = {
     'stats.label.projects': 'Digital solutions built',
     'stats.label.location': 'Current city',
     'stats.label.stargazers_count': 'Stars this repository has on GitHub',
-    'stats.label.subscribers_count': 'Number of people watching this repository',
+    'stats.label.subscribers_count':
+      'Number of people watching this repository',
     'stats.label.forks': 'Number of forks',
     'stats.label.spoons': 'Number of spoons',
     'stats.label.linter': 'Number of linter warnings',
@@ -140,7 +148,8 @@ export const translations = {
 
     // Projects
     'projects.title': 'Projects',
-    'projects.subtitle': 'Discover the projects, platforms, and digital solutions created by Fernando HOUSSOU.',
+    'projects.subtitle':
+      'Discover the projects, platforms, and digital solutions created by Fernando HOUSSOU.',
     'projects.featured': 'Featured Projects',
     'projects.other': 'Other Projects',
     'projects.category.all': 'All',
@@ -158,7 +167,7 @@ export const translations = {
     'writing.rss': 'RSS Feed',
     'writing.guides': 'Guides',
     'writing.empty': 'No articles found.',
-  }
+  },
 } as const;
 
 export type Language = 'fr' | 'en';

@@ -14,7 +14,8 @@ export default function PersonalStats({ lang }: PersonalStatsProps) {
   const translatedData = data.map((item) => ({
     ...item,
     label:
-      t[`stats.label.${item.key}` as keyof ReturnType<typeof getTranslation>] || item.label,
+      t[`stats.label.${item.key}` as keyof ReturnType<typeof getTranslation>] ||
+      item.label,
   }));
 
   return <Table data={translatedData} />;

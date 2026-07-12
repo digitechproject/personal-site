@@ -10,7 +10,12 @@ const mockCategories = [
 ];
 
 const mockSkills = [
-  { titleFr: 'Python', titleEn: 'Python', competency: 5, category: ['Languages', 'ML Engineering'] },
+  {
+    titleFr: 'Python',
+    titleEn: 'Python',
+    competency: 5,
+    category: ['Languages', 'ML Engineering'],
+  },
   {
     titleFr: 'TypeScript',
     titleEn: 'TypeScript',
@@ -23,27 +28,43 @@ const mockSkills = [
     competency: 4,
     category: ['Languages', 'Web Development'],
   },
-  { titleFr: 'PyTorch', titleEn: 'PyTorch', competency: 4, category: ['ML Engineering'] },
-  { titleFr: 'React', titleEn: 'React', competency: 3, category: ['Web Development'] },
+  {
+    titleFr: 'PyTorch',
+    titleEn: 'PyTorch',
+    competency: 4,
+    category: ['ML Engineering'],
+  },
+  {
+    titleFr: 'React',
+    titleEn: 'React',
+    competency: 3,
+    category: ['Web Development'],
+  },
 ];
 
 describe('Skills', () => {
   it('renders the skills section in English', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
     expect(
       screen.getByRole('heading', { name: /skills/i }),
     ).toBeInTheDocument();
   });
 
   it('renders the skills section in French', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="fr" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="fr" />,
+    );
     expect(
       screen.getByRole('heading', { name: /compétences/i }),
     ).toBeInTheDocument();
   });
 
   it('renders category filter buttons including All', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
 
     expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument();
     expect(
@@ -58,7 +79,9 @@ describe('Skills', () => {
   });
 
   it('shows all skills by default', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
 
     expect(screen.getAllByText('Python').length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText('TypeScript').length).toBeGreaterThanOrEqual(1);
@@ -68,7 +91,9 @@ describe('Skills', () => {
   });
 
   it('filters skills when category button is clicked', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
 
     const mlButton = screen.getByRole('button', { name: 'ML Engineering' });
     fireEvent.click(mlButton);
@@ -80,7 +105,9 @@ describe('Skills', () => {
   });
 
   it('shows all skills when clicking category again (toggle off)', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
 
     const mlButton = screen.getByRole('button', { name: 'ML Engineering' });
     fireEvent.click(mlButton);
@@ -91,7 +118,9 @@ describe('Skills', () => {
   });
 
   it('sets aria-pressed on active category button', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
 
     const languagesButton = screen.getByRole('button', { name: 'Languages' });
     expect(languagesButton).toHaveAttribute('aria-pressed', 'false');
@@ -101,14 +130,18 @@ describe('Skills', () => {
   });
 
   it('displays skills grouped by category', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
 
     const groupTitles = document.querySelectorAll('.skill-group-title');
     expect(groupTitles.length).toBeGreaterThan(0);
   });
 
   it('sorts skills by competency (highest first)', () => {
-    render(<Skills skills={mockSkills} categories={mockCategories} lang="en" />);
+    render(
+      <Skills skills={mockSkills} categories={mockCategories} lang="en" />,
+    );
 
     fireEvent.click(screen.getByRole('button', { name: 'Languages' }));
 

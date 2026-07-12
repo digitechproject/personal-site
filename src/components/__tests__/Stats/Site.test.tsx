@@ -59,7 +59,9 @@ describe('Site', () => {
       screen.getByText('Étoiles (Stars) sur ce dépôt GitHub'),
     ).toBeInTheDocument();
     expect(screen.getByText('Nombre de forks')).toBeInTheDocument();
-    expect(screen.getByText('Nombre de cuillères (spoons)')).toBeInTheDocument();
+    expect(
+      screen.getByText('Nombre de cuillères (spoons)'),
+    ).toBeInTheDocument();
   });
 
   it('displays static values for non-GitHub stats', async () => {

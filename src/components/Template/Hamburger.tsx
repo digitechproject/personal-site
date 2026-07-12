@@ -17,7 +17,8 @@ export default function Hamburger() {
   const pathname = usePathname();
 
   // Extract the active language from the pathname (defaulting to 'fr')
-  const lang: Language = pathname?.startsWith('/en/') || pathname === '/en' ? 'en' : 'fr';
+  const lang: Language =
+    pathname?.startsWith('/en/') || pathname === '/en' ? 'en' : 'fr';
   const t = getTranslation(lang);
 
   useEffect(() => {
@@ -33,7 +34,9 @@ export default function Hamburger() {
   };
 
   const getRouteLabel = (label: string) => {
-    const key = `nav.${label.toLowerCase()}` as keyof ReturnType<typeof getTranslation>;
+    const key = `nav.${label.toLowerCase()}` as keyof ReturnType<
+      typeof getTranslation
+    >;
     return t[key] || label;
   };
 
@@ -47,9 +50,7 @@ export default function Hamburger() {
         {indexRoute && (
           <li key={indexRoute.label}>
             <Link href={getLocalizedPath(indexRoute.path)} onClick={closeMenu}>
-              <h3 className="index-li">
-                {getRouteLabel(indexRoute.label)}
-              </h3>
+              <h3 className="index-li">{getRouteLabel(indexRoute.label)}</h3>
             </Link>
           </li>
         )}

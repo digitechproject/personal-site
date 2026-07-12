@@ -41,8 +41,10 @@ export default function Job({ data, lang = 'fr' }: JobProps) {
           -{' '}
           {endDate ? (
             <time dateTime={endDate}>{dayjs(endDate).format('MMMM YYYY')}</time>
+          ) : lang === 'en' ? (
+            'Present'
           ) : (
-            lang === 'en' ? 'Present' : 'Aujourd’hui'
+            'Aujourd’hui'
           )}
         </p>
       </header>

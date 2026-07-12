@@ -10,7 +10,9 @@ interface ContactPageProps {
   params: Promise<{ lang: string }> | any;
 }
 
-export async function generateMetadata({ params }: ContactPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ContactPageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang === 'en' ? 'en' : 'fr';
 

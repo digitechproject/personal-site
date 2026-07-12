@@ -39,9 +39,7 @@ export default function LanguageSwitcher() {
       aria-label={isEnglish ? 'Passer en Français' : 'Switch to English'}
       title={isEnglish ? 'Passer en Français' : 'Switch to English'}
     >
-      <span className="lang-switcher-text">
-        {isEnglish ? 'FR' : 'EN'}
-      </span>
+      <span className="lang-switcher-text">{isEnglish ? 'FR' : 'EN'}</span>
     </button>
   );
 }

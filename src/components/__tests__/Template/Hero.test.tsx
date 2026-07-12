@@ -19,7 +19,7 @@ describe('Hero', () => {
     render(<Hero lang="fr" />);
 
     const heading = screen.getByRole('heading', { level: 1 });
-    expect(heading).toHaveTextContent("Fernando HOUSSOU");
+    expect(heading).toHaveTextContent('Fernando HOUSSOU');
   });
 
   it('renders the tagline in French', () => {
@@ -31,9 +31,7 @@ describe('Hero', () => {
 
   it('renders the tagline in English', () => {
     render(<Hero lang="en" />);
-    expect(
-      screen.getByText(/I build digital solutions/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/I build digital solutions/)).toBeInTheDocument();
   });
 
   it('displays hero chips for credentials', () => {
@@ -85,4 +83,3 @@ describe('Hero', () => {
     expect(bg).toHaveAttribute('aria-hidden', 'true');
   });
 });
-
