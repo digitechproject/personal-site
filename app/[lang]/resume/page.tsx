@@ -30,8 +30,8 @@ export async function generateMetadata({
     title: lang === 'en' ? 'Resume' : 'CV',
     description:
       lang === 'en'
-        ? 'Resume of Fernando HOUSSOU. Tech Entrepreneur, UI/UX Designer, Laravel Developer, Cotonou, Benin.'
-        : 'Le CV de Fernando HOUSSOU. Entrepreneur Tech, Designer UI/UX, Développeur Laravel, Cotonou, Bénin.',
+        ? 'Resume of Fernando HOUSSOU. Tech Entrepreneur, UI/UX Designer, Fullstack Developer, Cotonou, Benin.'
+        : 'Le CV de Fernando HOUSSOU. Entrepreneur Tech, Designer UI/UX, Développeur Fullstack, Cotonou, Bénin.',
     path: `/${lang}/resume/`,
   });
 }

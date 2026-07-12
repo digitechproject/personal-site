@@ -120,8 +120,8 @@ const work: Position[] = [
   },
   {
     name: 'Freelance',
-    positionFr: 'Designer UI/UX, Monteur Vidéo & Développeur Laravel',
-    positionEn: 'UI/UX Designer, Video Editor & Laravel Developer',
+    positionFr: 'Designer UI/UX, Monteur Vidéo & Développeur Fullstack',
+    positionEn: 'UI/UX Designer, Video Editor & Fullstack Developer',
     url: 'https://www.behance.net/fernandohoussou',
     startDate: '2020-01-01',
     summaryFr: `Prestations de services numériques en freelance. Clients physiques et clients internationaux en ligne via Upwork, ComeUp et Fiverr, en complément de missions réalisées directement avec des entreprises et entrepreneurs locaux (branding, montage vidéo, développement PHP/Laravel).`,

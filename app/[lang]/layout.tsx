@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     AUTHOR_NAME,
     'Entrepreneur Tech',
     'Product Designer',
-    'Laravel Developer',
+    'Fullstack Developer',
     'Solutions Digitales',
     'Cotonou',
     'Benin',

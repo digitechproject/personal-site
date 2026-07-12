@@ -35,8 +35,8 @@ export default function PDFGeneratorButton({ lang }: PDFGeneratorButtonProps) {
         personal: {
           name: AUTHOR_NAME,
           title: isEn
-            ? 'Tech Entrepreneur | UI/UX Designer | Laravel Developer'
-            : 'Entrepreneur Tech | Designer UI/UX | Développeur Laravel',
+            ? 'Tech Entrepreneur | UI/UX Designer | Fullstack Developer'
+            : 'Entrepreneur Tech | Designer UI/UX | Développeur Fullstack',
           summary: t['resume.summary'] || '',
           avatarUrl: `${SITE_URL}/images/me.jpg`, // Absolute URL for reliable react-pdf image loading
           location: 'Cotonou, Bénin',
