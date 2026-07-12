@@ -82,7 +82,7 @@ export default function ModernTemplate({
       width: '33%',
       backgroundColor: theme.bgDark,
       color: theme.textLight,
-      padding: '24px 16px',
+      padding: '0 16px 24px 16px',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -170,7 +170,7 @@ export default function ModernTemplate({
     // Main Content Area Style (Light)
     mainContent: {
       width: '67%',
-      padding: '28px 24px',
+      padding: '0 24px 28px 24px',
     },
     headerContainer: {
       marginBottom: 16,
@@ -287,6 +287,8 @@ export default function ModernTemplate({
     <Page size="A4" style={[baseStyles.page, styles.page]}>
       {/* Left Sidebar (Dark Blue/Slate) */}
       <View style={styles.sidebar}>
+        {/* Top spacer to ensure clean page margins on page 2+ */}
+        <View style={{ height: 24 }} fixed />
         {/* Avatar */}
         {data.personal.avatarUrl && (
           <View style={styles.avatarContainer}>
@@ -375,6 +377,8 @@ export default function ModernTemplate({
 
       {/* Right Main Content Column */}
       <View style={styles.mainContent}>
+        {/* Top spacer to ensure clean page margins on page 2+ */}
+        <View style={{ height: 28 }} fixed />
         <View style={styles.headerContainer}>
           <Text style={styles.headerName}>{data.personal.name}</Text>
           <Text style={styles.headerTitle}>{data.personal.title}</Text>
