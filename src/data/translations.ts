@@ -26,7 +26,7 @@ export const translations = {
     // Resume
     'resume.title': 'CV / Parcours',
     'resume.summary':
-      'Entrepreneur tech, designer graphique et web, spécialiste en marketing digital, développement de solutions numériques et stratégie opérationnelle. Plus de 10 ans d’expérience pratique dans la création visuelle, la communication digitale, le développement web, la gestion de projets, la prospection commerciale et la construction de produits numériques adaptés au marché africain.',
+      'Entrepreneur tech, designer UI/UX et développeur. Plus de 10 ans d’expérience en création visuelle, communication, développement web, gestion de projets et solutions numériques adaptées aux réalités locales.',
     'resume.nav.experience': 'Expérience',
     'resume.nav.education': 'Diplômes',
     'resume.nav.skills': 'Compétences',

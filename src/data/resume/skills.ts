@@ -87,7 +87,7 @@ const skills: Skill[] = [
     category: ['Development'],
   },
   {
-    titleFr: 'Intégration d’API & SSO',
+    titleFr: 'Intégration API & SSO',
     titleEn: 'API & SSO Integration',
     competency: 4,
     category: ['Development'],
@@ -143,19 +143,19 @@ const skills: Skill[] = [
     category: ['Marketing & Growth'],
   },
   {
-    titleFr: 'Tunnels de vente (Sales Funnels)',
+    titleFr: 'Tunnels de vente',
     titleEn: 'Sales Funnels',
     competency: 5,
     category: ['Marketing & Growth'],
   },
   {
-    titleFr: 'Marketing sur les réseaux sociaux',
+    titleFr: 'Marketing réseaux sociaux',
     titleEn: 'Social Media Marketing',
     competency: 5,
     category: ['Marketing & Growth'],
   },
   {
-    titleFr: 'Rédaction & Stratégie de contenu',
+    titleFr: 'Copywriting & Contenu',
     titleEn: 'Copywriting & Content Strategy',
     competency: 4,
     category: ['Marketing & Growth'],
@@ -174,14 +174,14 @@ const skills: Skill[] = [
     category: ['AI & Automation'],
   },
   {
-    titleFr: 'Automatisation des tâches',
+    titleFr: 'Automatisation',
     titleEn: 'Task Automation',
     competency: 4,
     category: ['AI & Automation'],
   },
   // Infrastructure & Operations
   {
-    titleFr: 'Routeurs MikroTik & Hotspots',
+    titleFr: 'MikroTik & Hotspots',
     titleEn: 'MikroTik Hotspot RouterOS',
     competency: 4,
     category: ['Infrastructure'],
