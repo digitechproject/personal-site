@@ -97,20 +97,20 @@ export default function ModernTemplate({
       border: '2px solid #ffffff',
     },
     sidebarSection: {
-      marginBottom: 12,
+      marginBottom: 10,
     },
     sidebarTitle: {
-      fontSize: 10,
+      fontSize: 9,
       fontWeight: 700,
       textTransform: 'uppercase',
       letterSpacing: 0.8,
       borderBottomWidth: 1,
       borderBottomColor: 'rgba(255, 255, 255, 0.2)',
       paddingBottom: 2,
-      marginBottom: 5,
+      marginBottom: 4,
     },
     profileText: {
-      fontSize: 7.5,
+      fontSize: 7.2,
       lineHeight: 1.3,
       fontWeight: 400,
       color: 'rgba(255, 255, 255, 0.85)',
@@ -146,14 +146,14 @@ export default function ModernTemplate({
     skillTagsContainer: {
       flexDirection: 'row',
       flexWrap: 'wrap',
-      gap: 3,
+      gap: 2,
     },
     skillTag: {
-      fontSize: 6.5,
+      fontSize: 6,
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       color: '#ffffff',
-      padding: '1.5px 4px',
-      borderRadius: 3,
+      padding: '1px 3px',
+      borderRadius: 2.5,
     },
     languageItem: {
       flexDirection: 'row',
