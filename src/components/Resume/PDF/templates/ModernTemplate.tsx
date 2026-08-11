@@ -74,24 +74,13 @@ export default function ModernTemplate({
 
   const styles = StyleSheet.create({
     page: {
+      flexDirection: 'row',
       backgroundColor: theme.bgLight,
     },
-    // Sidebar Background (repeats on all pages for design consistency)
-    sidebarBg: {
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      bottom: 0,
+    // Sidebar Style (Dark)
+    sidebar: {
       width: '33%',
       backgroundColor: theme.bgDark,
-    },
-    // Sidebar Content (only on first page, absolute overlay)
-    sidebar: {
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      width: '33%',
-      height: '100%',
       color: theme.textLight,
       padding: '0 16px 20px 16px',
       display: 'flex',
@@ -181,7 +170,6 @@ export default function ModernTemplate({
     // Main Content Area Style (Light)
     mainContent: {
       width: '67%',
-      marginLeft: '33%',
       padding: '0 24px 28px 24px',
     },
     headerContainer: {
@@ -283,13 +271,10 @@ export default function ModernTemplate({
 
   return (
     <Page size="A4" style={[baseStyles.page, styles.page]}>
-      {/* Left Sidebar Background (repeats on all pages) */}
-      <View style={styles.sidebarBg} fixed />
-
-      {/* Left Sidebar Content (only on first page) */}
+      {/* Left Sidebar (Dark Blue/Slate) */}
       <View style={styles.sidebar}>
-        {/* Top spacer */}
-        <View style={{ height: 24 }} />
+        {/* Top spacer to ensure clean page margins on page 2+ */}
+        <View style={{ height: 24 }} fixed />
         {/* Avatar */}
         {data.personal.avatarUrl && (
           <View style={styles.avatarContainer}>
