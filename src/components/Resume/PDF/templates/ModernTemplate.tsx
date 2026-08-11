@@ -74,7 +74,6 @@ export default function ModernTemplate({
 
   const styles = StyleSheet.create({
     page: {
-      flexDirection: 'row',
       backgroundColor: theme.bgLight,
     },
     // Sidebar Background (repeats on all pages for design consistency)
@@ -282,20 +281,6 @@ export default function ModernTemplate({
     },
   });
 
-  // Group skills by category to render them in structured layout
-  const groupedSkills = data.skillCategories.reduce(
-    (groups, category) => {
-      const categorySkills = data.skills.filter((skill) =>
-        skill.category.includes(category.name),
-      );
-      if (categorySkills.length > 0) {
-        groups[category.name] = categorySkills;
-      }
-      return groups;
-    },
-    {} as Record<string, typeof data.skills>,
-  );
-
   return (
     <Page size="A4" style={[baseStyles.page, styles.page]}>
       {/* Left Sidebar Background (repeats on all pages) */}
@@ -356,23 +341,16 @@ export default function ModernTemplate({
           <Text style={styles.sidebarTitle}>
             {isEn ? 'Skills' : 'Compétences'}
           </Text>
-          {Object.entries(groupedSkills).map(
-            ([categoryName, categorySkills]) => (
-              <View key={categoryName} style={styles.skillGroup}>
-                <Text style={styles.skillGroupTitle}>{categoryName}</Text>
-                <View style={styles.skillTagsContainer}>
-                  {categorySkills.map((skill) => {
-                    const title = isEn ? skill.titleEn : skill.titleFr;
-                    return (
-                      <Text key={title} style={styles.skillTag}>
-                        {title}
-                      </Text>
-                    );
-                  })}
-                </View>
-              </View>
-            ),
-          )}
+          <View style={styles.skillTagsContainer}>
+            {data.skills.map((skill) => {
+              const title = isEn ? skill.titleEn : skill.titleFr;
+              return (
+                <Text key={title} style={styles.skillTag}>
+                  {title}
+                </Text>
+              );
+            })}
+          </View>
         </View>
 
         {/* Langues Section */}
