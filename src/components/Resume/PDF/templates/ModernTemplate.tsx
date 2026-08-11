@@ -77,27 +77,39 @@ export default function ModernTemplate({
       flexDirection: 'row',
       backgroundColor: theme.bgLight,
     },
-    // Sidebar Style (Dark)
-    sidebar: {
+    // Sidebar Background (repeats on all pages for design consistency)
+    sidebarBg: {
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      bottom: 0,
       width: '33%',
       backgroundColor: theme.bgDark,
+    },
+    // Sidebar Content (only on first page, absolute overlay)
+    sidebar: {
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      width: '33%',
+      height: '100%',
       color: theme.textLight,
-      padding: '0 16px 24px 16px',
+      padding: '0 16px 20px 16px',
       display: 'flex',
       flexDirection: 'column',
     },
     avatarContainer: {
       alignItems: 'center',
-      marginBottom: 20,
+      marginBottom: 12,
     },
     avatar: {
-      width: 75,
-      height: 75,
-      borderRadius: 37.5,
+      width: 70,
+      height: 70,
+      borderRadius: 35,
       border: '2px solid #ffffff',
     },
     sidebarSection: {
-      marginBottom: 18,
+      marginBottom: 12,
     },
     sidebarTitle: {
       fontSize: 10,
@@ -106,19 +118,19 @@ export default function ModernTemplate({
       letterSpacing: 0.8,
       borderBottomWidth: 1,
       borderBottomColor: 'rgba(255, 255, 255, 0.2)',
-      paddingBottom: 4,
-      marginBottom: 8,
+      paddingBottom: 2,
+      marginBottom: 5,
     },
     profileText: {
       fontSize: 7.5,
-      lineHeight: 1.35,
+      lineHeight: 1.3,
       fontWeight: 400,
       color: 'rgba(255, 255, 255, 0.85)',
     },
     contactList: {
       display: 'flex',
       flexDirection: 'column',
-      gap: 6,
+      gap: 4,
     },
     contactItem: {
       flexDirection: 'row',
@@ -135,13 +147,13 @@ export default function ModernTemplate({
       textDecoration: 'none',
     },
     skillGroup: {
-      marginBottom: 8,
+      marginBottom: 5,
     },
     skillGroupTitle: {
       fontSize: 8,
       fontWeight: 600,
       color: theme.accentSecondary,
-      marginBottom: 3,
+      marginBottom: 2,
     },
     skillTagsContainer: {
       flexDirection: 'row',
@@ -152,7 +164,7 @@ export default function ModernTemplate({
       fontSize: 6.5,
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       color: '#ffffff',
-      padding: '2px 5px',
+      padding: '1.5px 4px',
       borderRadius: 3,
     },
     languageItem: {
@@ -170,6 +182,7 @@ export default function ModernTemplate({
     // Main Content Area Style (Light)
     mainContent: {
       width: '67%',
+      marginLeft: '33%',
       padding: '0 24px 28px 24px',
     },
     headerContainer: {
@@ -285,10 +298,13 @@ export default function ModernTemplate({
 
   return (
     <Page size="A4" style={[baseStyles.page, styles.page]}>
-      {/* Left Sidebar (Dark Blue/Slate) */}
+      {/* Left Sidebar Background (repeats on all pages) */}
+      <View style={styles.sidebarBg} fixed />
+
+      {/* Left Sidebar Content (only on first page) */}
       <View style={styles.sidebar}>
-        {/* Top spacer to ensure clean page margins on page 2+ */}
-        <View style={{ height: 24 }} fixed />
+        {/* Top spacer */}
+        <View style={{ height: 24 }} />
         {/* Avatar */}
         {data.personal.avatarUrl && (
           <View style={styles.avatarContainer}>
